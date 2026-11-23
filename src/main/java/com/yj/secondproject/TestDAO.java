@@ -12,7 +12,7 @@ public class TestDAO {
 
         try {
             ss = DdangoDB.connect();
-            List<TestDTO> tests = ss.selectList("sbqqq.getAllTest");
+            List<TestDTO> tests = ss.selectList("ddango.getAllTest");
             request.setAttribute("tests", tests);
 
         } catch (Exception e) {
