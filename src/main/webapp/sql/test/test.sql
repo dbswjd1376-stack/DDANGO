@@ -14,3 +14,4 @@ insert into test values (test_seq.nextval, 'sb1', 10);
 insert into test values (test_seq.nextval, 'sb2', 20);
 insert into test values (test_seq.nextval, 'sb3', 30);
 
+select * from test;
