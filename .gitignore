@@ -39,3 +39,6 @@ build/
 .DS_Store
 
 .idea
+
+### config ###
+src/main/resources/config.xml
