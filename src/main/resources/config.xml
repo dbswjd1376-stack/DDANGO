@@ -8,7 +8,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@yndued0s0ya922c2_medium?TNS_ADMIN=C:/hk/Wallet_YNDUED0S0YA922C2"/>
+                <property name="url" value="jdbc:oracle:thin:@yndued0s0ya922c2_medium?TNS_ADMIN=/Users/yang-yunjeong/Desktop/YJ/Wallet_YNDUED0S0YA922C2"/>
                 <property name="username" value="DDANGO"/>
                 <property name="password" value="Soldesk502!!"/>
             </dataSource>
