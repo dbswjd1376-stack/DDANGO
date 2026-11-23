@@ -9,7 +9,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="" />
+    <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SecondProject_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SecondProject_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYS.rUIBAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYS.rUIBAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/book/BOOK.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_BOOK.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_LIKE.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_MUSIC.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/sql/users/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sql/BOOK.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sql/Book.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sql/test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sql/test/test.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +90,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 9.0.123.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "sb",
+    "git-widget-placeholder": "Merging hk",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/SB/Second Project/DDANGO/src/main/webapp",
@@ -82,22 +115,10 @@
       <recent name="C:\SB\Second Project\DDANGO\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\hk\dbws_intellij\DDANGO2\src\main\webapp\sql\book" />
       <recent name="C:\SB\Second Project\DDANGO\src\main\webapp" />
       <recent name="C:\SB\Second Project\DDANGO\src\main\sql\test" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationStatuses">
-      <map>
-        <entry key="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-          <value>
-            <map>
-              <entry key="Tomcat 9.0.123" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.123" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.123" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
