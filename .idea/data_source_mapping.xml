@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/BOOK.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/test.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/users/users.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+  </component>
+</project>
