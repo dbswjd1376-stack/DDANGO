@@ -485,3 +485,4 @@ insert into book values (book_seq.nextval, '도시와 유령', '이효석', '소
 
 insert into book values (book_seq.nextval, '')
 
+select * from book;
