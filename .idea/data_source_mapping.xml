@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+<<<<<<< HEAD
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/book/BOOK.sql" value="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST.sql" value="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_BOOK.sql" value="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_LIKE.sql" value="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/playlist/PLAYLIST_MUSIC.sql" value="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" />
+=======
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/BOOK.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/test.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/sql/users/users.sql" value="95325dc5-72a2-4100-9419-d14d7f276e80" />
+>>>>>>> 4a090f9d345d2c884b7d019b8e7eb0794c803bd0
+  </component>
+</project>
