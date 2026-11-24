@@ -8,16 +8,17 @@
             select * from Test
     </select>
 
-
-    <!-- USERS 회원 관리 -->
-
-
     <!-- USERS 회원 관리 -->
 
     <!-- 1. 회원가입 -->
     <insert id="insertUser">
         insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{u_login_id}, #{u_password}, #{u_nickname}, #{u_email})
     </insert>
+
+    <!-- 2. 로그인 -->
+    <select id="loginUser" resultType="com.yj.secondproject.users.UserDTO">
+        select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
+    </select>
 
 
 

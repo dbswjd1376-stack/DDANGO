@@ -5,6 +5,7 @@ import com.yj.secondproject.DdangoDB;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 
 public class UserDAO {
 
@@ -39,4 +40,55 @@ public class UserDAO {
             }
         }
     }
+
+    // 2. 로그인
+    public static void loginUser(HttpServletRequest request) {
+
+        SqlSession ss = null;
+
+        try {
+
+            ss = DdangoDB.connect();
+
+            String loginId = request.getParameter("u_login_id");
+            String password = request.getParameter("u_password");
+
+            HashMap<String, String> vals = new HashMap<>();
+
+            vals.put("loginId", loginId);
+            vals.put("password", password);
+
+            UserDTO user = ss.selectOne("ddango.loginUser", vals);
+
+            if (user != null) {
+
+                request.getSession().setAttribute("loginUser", user);
+
+                request.setAttribute("loginResult", "success");
+
+                System.out.println("로그인 성공");
+
+            } else {
+
+                request.setAttribute("loginResult", "fail");
+                System.out.println("로그인 실패");
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("loginResult", "fail");
+
+        } finally {
+            if (ss != null) {
+                ss.close();
+            }
+        }
+    }
+
+
+
+
+
+
 }
