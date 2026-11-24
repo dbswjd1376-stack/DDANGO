@@ -39,26 +39,28 @@ html {
 }
 
 
-/* =========================
-   헤더
-========================= */
+/* 헤더 */
 
 header {
     width: 100%;
-    border-bottom: 1px solid var(--black);
+    border-bottom: 1px solid #20221e;
 }
 
 .header-inner {
     max-width: 1440px;
     min-height: 85px;
+
     margin: 0 auto;
-    padding: 20px 60px;
+    padding: 20px 40px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 25px;
 }
+
+
+/* 로고 */
 
 .logo {
     font-size: 34px;
@@ -73,31 +75,40 @@ header {
     margin-left: 4px;
 }
 
-nav {
+
+/* 메뉴 */
+
+header nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     margin-left: auto;
 }
 
-nav a {
+header nav a {
     font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
 }
 
-nav a:hover {
-    color: var(--orange);
+header nav a:hover {
+    color: #e65338;
 }
 
 
-/* 로그인 및 회원가입 버튼 */
+/* 회원가입, 로그인, 로그아웃 영역 */
 
 .header-auth {
     display: flex;
     align-items: center;
-    gap: 18px;
+    justify-content: flex-end;
+
+    gap: 15px;
+    flex-shrink: 0;
 }
+
+
+/* 회원가입 */
 
 .header-signup {
     font-size: 14px;
@@ -106,31 +117,99 @@ nav a:hover {
 }
 
 .header-signup:hover {
-    color: var(--orange);
+    color: #e65338;
 }
 
-.login {
+
+/* 로그인 및 로그아웃 공통 디자인 */
+
+.login,
+.logout {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    background-color: var(--black);
-    color: var(--white);
+    padding: 10px 20px;
 
-    border: 1px solid var(--black);
+    border: 1px solid #20221e;
     border-radius: 40px;
 
-    padding: 12px 24px;
-    font-size: 15px;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 700;
 
     white-space: nowrap;
+    cursor: pointer;
     transition: 0.2s;
 }
 
+
+/* 로그인 버튼 */
+
+.login {
+    background-color: #20221e;
+    color: #fffdf7;
+}
+
 .login:hover {
-    background-color: var(--orange);
-    border-color: var(--orange);
+    background-color: #e65338;
+    border-color: #e65338;
+}
+
+
+/* 로그인 회원 닉네임 */
+
+.header-nickname {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* 로그아웃 폼 */
+
+.logout-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 로그아웃 버튼 */
+
+.logout {
+    background-color: transparent;
+    color: #20221e;
+}
+
+.logout:hover {
+    background-color: #20221e;
+    color: #fffdf7;
+}
+
+
+/* 화면이 좁아질 경우 */
+
+@media (max-width: 1000px) {
+
+    .header-inner {
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    header nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .header-auth {
+        margin-left: auto;
+    }
+
 }
 
 
@@ -721,4 +800,39 @@ footer span {
         align-items: flex-start;
     }
 
+}
+
+/* 로그아웃 폼 */
+
+.logout-form {
+    margin: 0;
+}
+
+
+/* 로그아웃 버튼 */
+
+.logout {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    color: var(--black);
+
+    border: 1px solid var(--black);
+    border-radius: 40px;
+
+    padding: 12px 24px;
+
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logout:hover {
+    background-color: var(--black);
+    color: var(--white);
 }
