@@ -19,11 +19,11 @@
 
         <nav>
             <a href="index.jsp">DISCOVER</a>
-            <a href="#" onclick="return comingSoon(event)">감정별 노래추천</a>
+            <a href="emotion/emotionMain.jsp">감정별 노래추천</a>
             <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
         </nav>
 
-        <button class="login" onclick="comingSoon()">로그인 ↗</button>
+        <a href="login"><button class="login">로그인 ↗</button></a>
     </div>
 </header>
 

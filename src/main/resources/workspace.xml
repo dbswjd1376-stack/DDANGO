@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cc9fbcb-9bdd-4deb-b940-8da09fbc9ba3" name="Changes" comment="" />
+    <list default="true" id="9cc9fbcb-9bdd-4deb-b940-8da09fbc9ba3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/emotion/MusicApiServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/emotion/MusicDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookSearch.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bookSearchResult.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emotion/emotionMain.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../js/emotionJS/ApiJs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emotion/emotion.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emotion/music.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emotion/music_emotion.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYS.rUIBAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/com/yj/secondproject/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +57,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "hk",
+    "git-widget-placeholder": "Merging hk",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/hk/dbws_intellij/DDANGO2/src/main/webapp/sql",
     "nodejs_package_manager_path": "npm",
