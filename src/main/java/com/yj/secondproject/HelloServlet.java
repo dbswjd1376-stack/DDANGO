@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet("/login")
+@WebServlet("/test")
 public class HelloServlet extends HttpServlet {
 
 
