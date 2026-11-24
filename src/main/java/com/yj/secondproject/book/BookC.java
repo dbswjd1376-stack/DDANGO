@@ -1,15 +1,20 @@
+
 package com.yj.secondproject.book;
-import javax.servlet.http.HttpServletRequest;
 
-public class BookC {
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 
-    // 책 제목 검색
-    public static void getBookByTitle(HttpServletRequest request) {
+@WebServlet("/book-search")
+public class BookC extends HttpServlet {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+
+        // 검색 하는 일
         BookDAO.searchBookByTitle(request);
-    }
-
-    // 책의 챕터 목록 조회
-    public static void getChaptersByBookId(HttpServletRequest request) {
-        BookDAO.getChaptersByBookId(request);
+        // 어디로?
+        request.getRequestDispatcher("result.jsp").forward(request, response);
     }
 }

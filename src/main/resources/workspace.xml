@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cc9fbcb-9bdd-4deb-b940-8da09fbc9ba3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/book/BookC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../image/book/b5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../java/com/yj/secondproject/book/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/book/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9cc9fbcb-9bdd-4deb-b940-8da09fbc9ba3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
