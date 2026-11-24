@@ -14,7 +14,8 @@ public class BookDAO {
 
         try {
             ss = DdangoDB.connect();
-            List<BookDTO> books = ss.selectList("ddango.searchBookByTitle");
+            List<BookDTO> books = ss.selectList("ddango.searchBookByTitle",
+                    request.getParameter("keyword")); //검색어도 함께 전달
             request.setAttribute("books", books);
 
         } catch (Exception e) {
@@ -30,8 +31,11 @@ public class BookDAO {
 
         try {
             ss = DdangoDB.connect();
-            List<BookDTO> books = ss.selectList("ddango.getChapterByBookId");
-            request.setAttribute("books", books);
+            int bId = Integer.parseInt(request.getParameter("bId"));
+            List<BookChapterDTO> chapters =
+                    ss.selectList("ddango.getChaptersByBookId", bId);
+           
+            request.setAttribute("chapters", chapters);
 
         } catch (Exception e) {
             e.printStackTrace();
