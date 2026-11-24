@@ -42,3 +42,10 @@ build/
 
 ### config ###
 src/main/resources/config.xml
+.idea/dataSources.local.xml
+.idea/sqldialects.xml
+.idea/workspace.xml
+.idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3.xml
+.idea/dataSources/data_sources_history.xml
+.idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3/storage_v2/_src_/schema/SYS.rUIBAA.meta
+.idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3/storage_v2/_src_/schema/SYSTEM.L2avkg.meta
