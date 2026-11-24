@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDANGO | 그거 말고 딴거</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-   
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
 </head>
 
 <body>
@@ -23,7 +22,17 @@
             <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
         </nav>
 
-        <a href="login"><button class="login">로그인 ↗</button></a>
+        <div class="header-auth">
+
+            <a href="signup" class="header-signup">
+                회원가입
+            </a>
+
+            <a href="login" class="login">
+                로그인 ↗
+            </a>
+
+        </div>
     </div>
 </header>
 
