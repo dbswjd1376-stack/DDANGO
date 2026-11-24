@@ -9,20 +9,12 @@
     </select>
 
 
-<!-- USERS 회원 관리 -->
+    <!-- USERS 회원 관리 -->
 
     <!-- 1. 회원가입 -->
     <insert id="insertUser">
-   insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) VALUES (USERS_SEQ.NEXTVAL, #{uLoginId}, #{uPassword}, #{uNickname}, #{uEmail})
+        insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{uLoginId}, #{uPassword}, #{uNickname}, #{uEmail})
     </insert>
-
-    <!-- 2. 아이디 중복 확인 -->
-
-    <select id="checkLoginId" parameterType="string" resultType="int">
-        select count * from USERS where u_login_id = #{value}
-    </select>
-
-
 
 
 </mapper>
