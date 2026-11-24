@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_27" project-jdk-name="20" project-jdk-type="JavaSDK" />
-=======
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -14,5 +11,4 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="azul-20" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
->>>>>>> 4a090f9d345d2c884b7d019b8e7eb0794c803bd0
 </project>
