@@ -2,38 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc9fbcb-9bdd-4deb-b940-8da09fbc9ba3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/artifacts/SecondProject_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/artifacts/SecondProject_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYS.rUIBAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/4ddf8882-9daf-455e-808f-e8f37638e82c/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYS.rUIBAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/dataSources/73b2a28e-45ee-4719-bae8-6ac0e8aea36d/storage_v2/_src_/schema/SYSTEM.L2avkg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/users/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../java/com/yj/secondproject/users/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book/BOOK.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playlist/PLAYLIST.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playlist/PLAYLIST_BOOK.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playlist/PLAYLIST_LIKE.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playlist/PLAYLIST_MUSIC.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/Mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOOK.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Book.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.sql" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book.sql" beforeDir="false" afterPath="$PROJECT_DIR$/book/Book.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book_pli.sql" beforeDir="false" afterPath="$PROJECT_DIR$/book/Book_pli.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/BOOK.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book/Book_chp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/book/Book_chp.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +44,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Merging hk",
+    "git-widget-placeholder": "hk",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/hk/dbws_intellij/DDANGO2/src/main/webapp/sql",
     "nodejs_package_manager_path": "npm",
