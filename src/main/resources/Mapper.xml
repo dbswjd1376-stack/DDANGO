@@ -11,10 +11,14 @@
 
     <!-- USERS 회원 관리 -->
 
+
+    <!-- USERS 회원 관리 -->
+
     <!-- 1. 회원가입 -->
     <insert id="insertUser">
-        insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{uLoginId}, #{uPassword}, #{uNickname}, #{uEmail})
+        insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{u_login_id}, #{u_password}, #{u_nickname}, #{u_email})
     </insert>
+
 
 
 </mapper>
