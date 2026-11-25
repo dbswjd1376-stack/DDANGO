@@ -16,7 +16,7 @@ public class UserLogOutC extends HttpServlet {
         request.getSession().invalidate();
         System.out.println("로그아웃 성공");
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(request.getContextPath() + "/jsp/main/index.jsp");
 
     }
 
