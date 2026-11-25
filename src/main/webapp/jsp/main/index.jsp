@@ -78,7 +78,7 @@
             </p>
 
             <div class="hero-actions">
-                <button class="primary" onclick="scrollToPlaylists()">
+                <button class="primary" onclick="location.href='${pageContext.request.contextPath}/pl-c'">
                     플리 구경하기 ↗
                 </button>
                 <button onclick="comingSoon()">
@@ -110,7 +110,7 @@
                 <h2>우리가 먼저 들어봤어.</h2>
                 <p>노예들이 직접 고른, 오래 듣고 싶은 음악들.</p>
             </div>
-            <button class="more" onclick="comingSoon()">모두 보기 ↗</button>
+            <a href=""><button class="more">모두 보기 ↗</button></a>
         </div>
 
         <div class="playlist-grid">
