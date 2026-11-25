@@ -15,5 +15,6 @@
                 <div class="card-exp">${p.p_date}</div>
             </div>
         </div>
+        <div></div>
     </c:forEach>
 </div>
