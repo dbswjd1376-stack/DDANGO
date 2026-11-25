@@ -29,12 +29,12 @@
 <header>
   <div class="header-inner">
 
-    <a href="${pageContext.request.contextPath}/jsp/main/index.jsp" class="logo">
+    <a href="${pageContext.request.contextPath}/main" class="logo">
       DDANGO<span>딴거</span>
     </a>
 
     <nav>
-      <a href="${pageContext.request.contextPath}/jsp/main/index.jsp">DISCOVER</a>
+      <a href="${pageContext.request.contextPath}/main">DISCOVER</a>
       <a href="#" onclick="">
         감정별 노래추천
       </a>
