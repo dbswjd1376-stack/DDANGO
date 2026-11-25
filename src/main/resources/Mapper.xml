@@ -4,11 +4,6 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ddango">
 
-<!-- TEST 데이터 -->
-    <select id="getAllTest" resultType="com.yj.secondproject.TestDTO">
-            select * from Test
-    </select>
-
     <!-- USERS 회원 관리 -->
 
     <!-- 1. 회원가입 -->
@@ -19,17 +14,16 @@
     <!-- 2. 로그인 -->
     <select id="loginUser" resultType="com.yj.secondproject.users.UserDTO">
         select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
-
     </select>
+
+
+    <!-- 책 관련 -->
 
     <!-- 3. 마이페이지 회원정보 조회 -->
     <select id="getUserInfo" resultType="com.yj.secondproject.users.UserDTO">
         select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_id = #{u_id}
 
     </select>
-
-
-
 
 
     <!-- 1. 책 제목 검색 -->
@@ -64,6 +58,14 @@
         FROM book_chapter
         WHERE b_id = #{bId}
         ORDER BY bc_number
+    </select>
+
+    <!-- 플리관련 -->
+
+    <!-- 플리 전체 조회 -->
+
+    <select id="selectAllPlayList" resultType="com.yj.secondproject.playlist.PlayListDTO">
+        select * from PlayList
     </select>
 
 </mapper>
