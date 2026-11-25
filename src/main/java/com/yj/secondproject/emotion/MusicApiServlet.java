@@ -1,5 +1,12 @@
 package com.yj.secondproject.emotion;
 
+<<<<<<< HEAD
+=======
+import com.yj.secondproject.TestDAO;
+
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> 7eff1aab0f8123dea436629cf432ed72bb6ba686
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,17 +22,60 @@ import java.net.URLEncoder;
 @WebServlet("/api/music/*")
 public class MusicApiServlet extends HttpServlet {
 
+    // Servlet class load emotion -> last.fm tag map
+    private static final Map<String, String> MOOD_TO_TAG = creatMoodToTag();
+    private static Map<String, String> creatMoodToTag() {
+        Map<String, String> map = new HashMap<>();
+
+        addMoods(map, "chill", "relaxed");
+        addMoods(map, "happy", "good-mood", "satisfaction", "happiness", "gratitude");
+        addMoods(map, "sad", "feeling-down", "hurt-feelings", "sorrow", "tears",
+                "discouragement", "sense-of-loss", "unrequited-love");
+        addMoods(map, "calm", "peacefulness");
+        addMoods(map, "upbeat", "joy");
+        addMoods(map, "romantic", "excitement", "admiration", "shyness", "tenderness");
+        addMoods(map, "fun", "cheerfulness");
+        addMoods(map, "nostalgia", "nostalgia", "longing");
+        addMoods(map, "melancholy", "disappointment", "emptiness", "forlornness",
+                "helplessness", "lingering-attachment", "regret", "resignation");
+        addMoods(map, "loneliness", "loneliness");
+        addMoods(map, "dark", "despair", "feeling-threatened");
+        addMoods(map, "angry", "indignation", "annoyance", "displeasure", "anger",
+                "disapproval", "jealousy", "resentment");
+        addMoods(map, "aggressive", "disgust", "mockery");
+        addMoods(map, "energetic", "sense-of-superiority");
+        addMoods(map, "anxiety", "worry", "restlessness", "concern", "hesitation",
+                "anxiety", "panic");
+        addMoods(map, "nervous", "tension");
+        addMoods(map, "terror", "fear");
+        addMoods(map, "eerie", "shivers");
+        addMoods(map, "horror", "shock");
+        addMoods(map, "love", "affection", "love");
+
+        return map;
+    }
+
+    private static void addMoods(Map<String, String> map, String tag, String... moods) {
+        for (String mood : moods) {
+            map.put(mood, tag);
+        }
+    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String path = request.getPathInfo();
         String keyName;
         String endpoint;
-
+//      tag 값 받아서 API KEY 값 받아 오기
         if ("/recommend".equals(path)) {
-            String tag = request.getParameter("tag");
-            if (!"chill".equals(tag) && !"happy".equals(tag) && !"sad".equals(tag)) {
-                response.sendError(400, "Unknown mood tag");
+            // 브라우저가 보낸 세부 감정
+            String mood = request.getParameter("mood");
+
+            // 서버에서 정해 둔 Last.fm 검색 태그
+            String tag = MOOD_TO_TAG.get(mood);
+
+            if (tag == null) {
+                response.sendError(400, "Unknown mood");
                 return;
             }
             keyName = "LASTFM_API_KEY";

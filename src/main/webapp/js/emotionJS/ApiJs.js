@@ -3,6 +3,7 @@ const tracks = document.getElementById("music-tracks");
 const statusText = document.getElementById("music-status");
 const player = document.getElementById("music-player");
 
+// API 요청 function
 async function fetchMusic(path, params) {
     const url = music.dataset.api + path + "?" + new URLSearchParams(params);
     const response = await fetch(url);
@@ -19,6 +20,7 @@ async function fetchMusic(path, params) {
     return data;
 }
 
+// last.fm track 목록 받는 API 값 function
 async function loadVideo(track) {
     statusText.textContent = "YouTube 영상을 찾는 중…";
 
@@ -27,6 +29,7 @@ async function loadVideo(track) {
         const data = await fetchMusic("/video", { q: query });
         const videoId = data.items?.[0]?.id?.videoId;
 
+        // VideoId 값 없을 경우 Error
         if (!videoId) {
             throw new Error("재생 가능한 영상을 찾지 못했어요.");
         }
@@ -39,12 +42,13 @@ async function loadVideo(track) {
     }
 }
 
-async function loadTracks(tag) {
+// track 눌렀을 경우 영상 load function
+async function loadTracks(mood) {
     tracks.replaceChildren();
     statusText.textContent = "추천곡을 불러오는 중…";
 
     try {
-        const data = await fetchMusic("/recommend", { tag });
+        const data = await fetchMusic("/recommend", { mood });
         const recommendations = data.tracks?.track ?? [];
 
         for (const track of recommendations) {
@@ -64,6 +68,7 @@ async function loadTracks(tag) {
     }
 }
 
-music.querySelectorAll("[data-tag]").forEach((button) => {
-    button.addEventListener("click", () => loadTracks(button.dataset.tag));
+// data-tag 받아서 넘겨주는 query
+music.querySelectorAll("[data-mood]").forEach((button) => {
+    button.addEventListener("click", () => loadTracks(button.dataset.mood));
 });
