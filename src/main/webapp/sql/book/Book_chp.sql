@@ -3,7 +3,7 @@ create table book_chapter (
     b_id number not null,
     bc_number number not null,
     bc_title varchar2(200 char),
-    bc_description varchar2(500 char),
+    bc_description varchar2(500 char)
 
 --     CONSTRAINT FK_BC_BOOK FOREIGN KEY (b_id)
 --         REFERENCES BOOK(b_id) ON DELETE CASCADE,  --책을 지우면 챕터도 같이 지움--
@@ -101,3 +101,41 @@ where b_id = (
 select *
 from book_chapter
 order by bc_id desc;
+
+SELECT *
+FROM book_chapter
+WHERE b_id = 13;
+
+SELECT *
+FROM book_chapter
+ORDER BY b_id, bc_number;
+
+SELECT * FROM book_chapter;
+
+SELECT table_name
+FROM user_tables
+WHERE table_name = 'BOOK_CHAPTER';
+
+SELECT COUNT(*)
+FROM book_chapter;
+
+SELECT *
+FROM book_chapter
+WHERE b_id = 13
+ORDER BY bc_number;
+
+SELECT book.b_id,
+       book.b_title,
+       CASE
+           WHEN EXISTS (
+               SELECT 1
+               FROM book_chapter
+               WHERE book_chapter.b_id = book.b_id
+           )
+               THEN 1
+           ELSE 0
+           END AS hasChapter
+FROM book
+WHERE book.b_title LIKE '%변신%';
+
+SELECT USER FROM DUAL;
