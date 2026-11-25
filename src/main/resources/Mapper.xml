@@ -16,7 +16,19 @@
         select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
     </select>
 
+<<<<<<< HEAD
     <!-- 책 관련 -->
+=======
+    <!-- 3. 마이페이지 회원정보 조회 -->
+    <select id="getUserInfo" resultType="com.yj.secondproject.users.UserDTO">
+        select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_id = #{u_id}
+
+    </select>
+
+
+
+
+>>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
 
     <!-- 1. 책 제목 검색 -->
     <select id="searchBookByTitle" parameterType="string" resultType="com.yj.secondproject.book.BookDTO">
