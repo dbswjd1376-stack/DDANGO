@@ -43,7 +43,7 @@
                             else 0
                             END as hasChapter
 
-        FROM book Where hook.b_title like '%' || #{keyword} || '%'
+        FROM book Where book.b_title like '%' || #{keyword} || '%'
         order by book.b_id
 
     </select>
@@ -59,6 +59,15 @@
         WHERE b_id = #{bId}
         ORDER BY bc_number
     </select>
+
+    <select id="debugChapterCount" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM book_chapter
+        WHERE b_id = #{bId}
+    </select>
+
+
+
 
     <!-- 플리관련 -->
 
