@@ -23,7 +23,7 @@
         <nav>
             <a href="${pageContext.request.contextPath}/jsp/main/index.jsp">DISCOVER</a>
             <a href="${pageContext.request.contextPath}/emotion/emotionMain.jsp">감정별 노래추천</a>
-            <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
+            <a href="${pageContext.request.contextPath}/jsp/book/bookSearch.jsp">도서로 노래추천</a>
         </nav>
 
         <div class="header-auth">
