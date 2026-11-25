@@ -6,6 +6,9 @@
     <title>Title</title>
 </head>
 <body>
+<div class ="contents">
+    <jsp:include page="${}"></jsp:include>
+</div>
 <c:forEach items="${playLists}" var="p">
     <div class="card">
         <div class="card-img">
