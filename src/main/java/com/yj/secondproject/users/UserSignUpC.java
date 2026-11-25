@@ -14,7 +14,7 @@ public class UserSignUpC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.getRequestDispatcher("signup.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/main/signup.jsp").forward(request, response);
 
     }
 
@@ -28,11 +28,11 @@ public class UserSignUpC extends HttpServlet {
 
         if ("success".equals(result)) {
             // 회원가입 성공 시 메인페이지 이동
-            response.sendRedirect("index.jsp?signup=success");
+            response.sendRedirect(request.getContextPath() + "/jsp/main/index.jsp?signup=success");
 
         } else {
             // 회원가입 실패 시 회원가입 페이지 유지
-            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/main/signup.jsp").forward(request, response);
 
         }
     }
