@@ -16,10 +16,10 @@
         rel="stylesheet">
 
   <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/css/index.css">
+        href="${pageContext.request.contextPath}/src/main/webapp/css/index.css">
 
   <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/css/signup.css">
+        href="${pageContext.request.contextPath}/src/main/webapp/css/signup.css">
 
 </head>
 

@@ -13,9 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/src/main/webapp/css/index.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/src/main/webapp/css/signup.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/src/main/webapp/css/login.css">
 
 </head>
 

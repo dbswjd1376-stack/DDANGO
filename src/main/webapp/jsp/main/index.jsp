@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDANGO | 그거 말고 딴거</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/src/main/webapp/css/index.css">
 
 </head>
 
@@ -22,7 +22,7 @@
 
         <nav>
             <a href="index.jsp">DISCOVER</a>
-            <a href="emotion/emotionMain.jsp">감정별 노래추천</a>
+            <a href="../../emotion/emotionMain.jsp">감정별 노래추천</a>
             <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
         </nav>
 
