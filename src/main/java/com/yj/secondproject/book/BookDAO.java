@@ -18,6 +18,7 @@ public class BookDAO {
             // 입력한 도서 제목이랑 문구 가져오기
             String keyword = request.getParameter("keyword");
             String quote = request.getParameter("quote");
+            String mode = request.getParameter("mode");
 
             // 도서 제목으로 db 검색
             List<BookDTO> books = ss.selectList("ddango.searchBookByTitle",
@@ -26,6 +27,7 @@ public class BookDAO {
             // 검색 결과와 문구를 request에 저장
             request.setAttribute("books", books);
             request.setAttribute("quote", quote);
+            request.setAttribute("mode", mode);
 
         } catch (Exception e) {
             e.printStackTrace();

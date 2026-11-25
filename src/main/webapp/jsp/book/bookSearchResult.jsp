@@ -25,7 +25,11 @@
 
             <p>입력한 문구 : ${quote}</p>
 
-            <hr>
+            <!-- 챕터가 있는 책만 -->
+            <c:if test="${book.hasChapter == 1}">
+                <button type="button">챕터별 플레이리스트 추천
+                    <br> <h3>챕터마다 달라지는 분위기에 맞춘 플레이리스트</h3></button>
+            </c:if>
 
         </c:forEach>
 

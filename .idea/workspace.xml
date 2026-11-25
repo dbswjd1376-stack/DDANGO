@@ -10,13 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserMypageC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearch.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearchResult.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearchResult.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,18 +38,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dbswjd1376-stack"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dbswjd1376-stack&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dbswjd1376-stack/DDANGO.git",
-    "accountId": "571f940f-134e-49e5-b55f-0c7d57e25fa8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dbswjd1376-stack/DDANGO.git&quot;,
+    &quot;accountId&quot;: &quot;571f940f-134e-49e5-b55f-0c7d57e25fa8&quot;
   }
-}]]></component>
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -89,7 +87,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 9.0.123.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "yj",
+    "git-widget-placeholder": "hk",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/SB/Second Project/DDANGO/src/main/webapp",
