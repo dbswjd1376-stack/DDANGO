@@ -9,19 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="" />
-=======
     <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserMypageC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
     </list>
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,23 +20,14 @@
   </component>
   <component name="DatabaseLocalColorSettings">
     <colors>
-<<<<<<< HEAD
-      <entry key="33b0e35b-df4c-4b92-adcc-3950663f3c8f" value="" />
-=======
       <entry key="7d29c890-7a77-49ee-b988-bd39e2654eb7" value="" />
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
     </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-<<<<<<< HEAD
-        <option value="CSS File" />
-        <option value="Class" />
-=======
         <option value="Class" />
         <option value="CSS File" />
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
         <option value="Jsp File" />
       </list>
     </option>
@@ -53,21 +35,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-=======
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "dbswjd1376-stack"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dbswjd1376-stack&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dbswjd1376-stack/DDANGO.git",
-    "accountId": "571f940f-134e-49e5-b55f-0c7d57e25fa8"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dbswjd1376-stack/DDANGO.git&quot;,
+    &quot;accountId&quot;: &quot;571f940f-134e-49e5-b55f-0c7d57e25fa8&quot;
   }
-}]]></component>
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -75,8 +54,6 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -84,26 +61,22 @@
       </MavenGeneralSettings>
     </option>
   </component>
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0,
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3MJRKGhMlKzh7Gt0bF81Ko3OsHU" />
-<<<<<<< HEAD
-=======
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Maven.SecondProject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.SecondProject [validate].executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -122,49 +95,14 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;oracle&quot;
-    ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;Oracle&quot;
     ]
   }
 }</component>
-=======
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.SecondProject [clean].executor": "Run",
-    "Maven.SecondProject [validate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.123.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "yj",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/SB/Second Project/DDANGO/src/main/webapp",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
-    ]
-  }
-}]]></component>
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\SB\Second Project\DDANGO\src\main\webapp" />
@@ -178,11 +116,7 @@
       <recent name="C:\SB\Second Project\DDANGO\src\main\sql\test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-<<<<<<< HEAD
-      <recent name="playlist" />
-=======
       <recent name="com.yj.secondproject.users" />
->>>>>>> adfe5937f62a28e908ab295fc29acf5e9b4f3eec
     </key>
   </component>
   <component name="RunDashboard">
