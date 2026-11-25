@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
     <data-source source="LOCAL" name="Oracle" uuid="8057e620-02cd-413e-829e-b75ca0aff47f">
+=======
+    <data-source source="LOCAL" name="Oracle" uuid="33b0e35b-df4c-4b92-adcc-3950663f3c8f">
+>>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
       <driver-ref>oracle.19</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
@@ -10,7 +14,11 @@
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+<<<<<<< HEAD
         <property name="TNSADMIN_DIR" value="$PROJECT_DIR$/../../Wallet_YNDUED0S0YA922C2" />
+=======
+        <property name="TNSADMIN_DIR" value="C:\SB2\Wallet_YNDUED0S0YA922C2" />
+>>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
