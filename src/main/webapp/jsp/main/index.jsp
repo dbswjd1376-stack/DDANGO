@@ -307,10 +307,10 @@
         if (target.matches(".header-signup, a.login")) return;
 
         // 비로그인 사용자 접근 제한
-        if (!checkLogin()) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-        }
+        // if (!checkLogin()) {
+        //     event.preventDefault();
+        //     event.stopImmediatePropagation();
+        // }
 
     }, true);
 
