@@ -26,7 +26,7 @@ public class UserLoginC extends HttpServlet {
         String result = (String) request.getAttribute("loginResult");
 
         if ("success".equals(result)) {
-            response.sendRedirect(request.getContextPath() + "/jsp/main/index.jsp");
+            response.sendRedirect(request.getContextPath() + "/main");
 
         } else {
             request.getRequestDispatcher("/jsp/main/login.jsp").forward(request, response);
