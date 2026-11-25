@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<%-- 노래 감정 tag data-mood는 세밀 감정 tag --%>
 <section id="music" data-api="${pageContext.request.contextPath}/api/music">
     <button type="button" data-mood="relaxed" data-tag="chill">편안해요</button>
     <button type="button" data-mood="good-mood" data-tag="happy">기분이 좋아요</button>
@@ -67,10 +68,14 @@
     <button type="button" data-mood="tenderness" data-tag="romantic">애틋함</button>
     <button type="button" data-mood="unrequited-love" data-tag="sad">짝사랑</button>
     <button type="button" data-mood="love" data-tag="love">사랑</button>
-    <a href="${pageContext.request.contextPath}/api/music/recommend?tag=chill">Last.fm 연결 테스트</a>
+    <%-- api 들어갔는지 확인 하는 용 링크 --%>
+    <a href="${pageContext.request.contextPath}/api/music/recommend?tag=romantic">Last.fm 연결 테스트</a>
+    <%--  세부 감정 분류 확인 하는 링크  --%>
+    <a href="http://localhost:8080/api/music/recommend?mood=satisfaction">test</a>
+    <%--  track 목록  --%>
     <p id="music-status" role="status"></p>
     <ul id="music-tracks"></ul>
-
+    <%--  나오는 영상 화면 크기 및 화면 숨기는 기능  --%>
     <iframe id="music-player" title="Youtube 음악 플레이어"
     width="480" height="270" allowfullscreen
     referrerpolicy="strict-origin-when-cross-origin" hidden></iframe>
