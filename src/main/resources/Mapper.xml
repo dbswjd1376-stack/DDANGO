@@ -16,22 +16,16 @@
         insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{u_login_id}, #{u_password}, #{u_nickname}, #{u_email})
     </insert>
 
-<<<<<<< HEAD
-    <!-- 2. 아이디 중복 확인 -->
-
-    <select id="checkLoginId" resultType="userVO">
-        select count * from USERS where u_login_id = #{value}
-=======
     <!-- 2. 로그인 -->
     <select id="loginUser" resultType="com.yj.secondproject.users.UserDTO">
         select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
->>>>>>> 3d97cf31f4192bab383dc64626cd57fb28b77937
+
     </select>
 
 
 
     <!-- 1. 책 제목 검색 -->
-    <select id="searchBookByTitle" parameterType="string" resultType="com.yj.secondproject.BookDTO">
+    <select id="searchBookByTitle" parameterType="string" resultType="com.yj.secondproject.book.BookDTO">
         select  b_id,
         b_title,
         b_author,
@@ -53,7 +47,7 @@
     </select>
 
     <!-- 2. 책에 해당하는 챕터 목록 조회-->
-    <select id="getChapterByBookId" parameterType="string" resultType="com.yj.secondproject.BookChapterDTO">
+    <select id="getChapterByBookId" parameterType="string" resultType="com.yj.secondproject.book.BookChapterDTO">
         select bc_id,
         b_id,
         bc_number,

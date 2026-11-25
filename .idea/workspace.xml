@@ -10,8 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/book/BookC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLogOutC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLogOutC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLoginC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLoginC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserSignUpC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserSignUpC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bookSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearch.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bookSearchResult.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/book/bookSearchResult.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/result.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/signup.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +35,7 @@
   </component>
   <component name="DatabaseLocalColorSettings">
     <colors>
+      <entry key="33b0e35b-df4c-4b92-adcc-3950663f3c8f" value="" />
       <entry key="4ddf8882-9daf-455e-808f-e8f37638e82c" value="" />
       <entry key="71d2e64a-5192-4268-9740-587a15dd1f76" value="" />
       <entry key="73b2a28e-45ee-4719-bae8-6ac0e8aea36d" value="" />
@@ -30,6 +46,7 @@
       <list>
         <option value="Class" />
         <option value="CSS File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -52,42 +69,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 9.0.123.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "sb",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/SB/Second Project/DDANGO/src/main/webapp",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.jshint": "true",
-    "node.js.selected.package.jshint": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.123.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sb&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SB/Second Project/DDANGO/src/main/webapp&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\SB\Second Project\DDANGO\src\main\webapp" />
       <recent name="C:\SB\Second Project\DDANGO\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\hk\dbws_intellij\DDANGO2\src\main\webapp\sql\book" />
+      <recent name="C:\SB\Second Project\DDANGO\src\main\webapp\jsp\book" />
+      <recent name="C:\SB\Second Project\DDANGO\src\main\webapp\jsp\Main" />
       <recent name="C:\SB\Second Project\DDANGO\src\main\webapp" />
+      <recent name="C:\hk\dbws_intellij\DDANGO2\src\main\webapp\sql\book" />
       <recent name="C:\SB\Second Project\DDANGO\src\main\sql\test" />
     </key>
   </component>
@@ -186,6 +205,16 @@
           <option name="VM_PARAMETERS" value="" />
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
+        <EnvironmentVariables>
+          <option name="NAME" value="LASTFM_API_KEY" />
+          <option name="VALUE" value="b044159fc598f004eea976488a5a8316" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
+        <EnvironmentVariables>
+          <option name="NAME" value="YOUTUBE_API_KEY" />
+          <option name="VALUE" value="AIzaSyA2zlD7KNaB5Bg9u7jaxce0vX6nRCtYoTU" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />

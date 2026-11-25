@@ -15,6 +15,6 @@ public class BookC extends HttpServlet {
         // 검색 하는 일
         BookDAO.searchBookByTitle(request);
         // 어디로?
-        request.getRequestDispatcher("result.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/book/bookSearchResult.jsp").forward(request, response);
     }
 }
