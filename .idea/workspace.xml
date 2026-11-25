@@ -10,19 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SecondProject_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SecondProject_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserMypageC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/signup.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="7d29c890-7a77-49ee-b988-bd39e2654eb7" value="" />
+    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -115,6 +119,9 @@
       <recent name="C:\SB\Second Project\DDANGO\src\main\webapp" />
       <recent name="C:\hk\dbws_intellij\DDANGO2\src\main\webapp\sql\book" />
       <recent name="C:\SB\Second Project\DDANGO\src\main\sql\test" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yj.secondproject.users" />
     </key>
   </component>
   <component name="RunDashboard">

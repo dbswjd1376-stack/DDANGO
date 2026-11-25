@@ -86,6 +86,39 @@ public class UserDAO {
         }
     }
 
+    // 3. 마이페이지 회원정보 조회
+    public static void getUserInfo (HttpServletRequest request) {
+
+        SqlSession ss = null;
+
+        try {
+
+            ss = DdangoDB.connect();
+
+         UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginUser");
+
+         int u_id = loginUser.getU_id();
+
+         UserDTO user = ss.selectOne("ddango.getUserInfo", u_id);
+
+         if (user != null) {
+
+             request.setAttribute("mypageUser", user);
+         }  else {
+             request.setAttribute("mypageError", "회원정보를 찾을 수 없습니다");
+         }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("mypageError", "회원정보 조회에 실패했습니다");
+
+        } finally {
+            if (ss != null) {
+                ss.close();
+            }
+        }
+    }
+
 
 
 
