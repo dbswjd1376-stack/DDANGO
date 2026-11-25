@@ -25,12 +25,12 @@
 <header>
   <div class="header-inner">
 
-    <a href="index.jsp" class="logo">
+    <a href="${pageContext.request.contextPath}/jsp/main/index.jsp" class="logo">
       DDANGO<span>딴거</span>
     </a>
 
     <nav>
-      <a href="index.jsp">DISCOVER</a>
+      <a href="${pageContext.request.contextPath}/jsp/main/index.jsp">DISCOVER</a>
 
       <a href="#" onclick="">
         감정별 노래추천
@@ -41,7 +41,7 @@
       </a>
     </nav>
 
-    <a href="signup" class="login">
+    <a href="${pageContext.request.contextPath}/signup" class="login">
       회원가입 ↗
     </a>
 
@@ -79,7 +79,7 @@
 
 
     <!-- 로그인 입력 폼 -->
-    <form action="login" method="post" class="signup-form">
+    <form action="${pageContext.request.contextPath}/login" method="post" class="signup-form">
 
       <!-- 아이디 -->
       <div class="signup-field">
@@ -122,7 +122,7 @@
     <!-- 회원가입 페이지 이동 -->
     <p class="signup-bottom">
       아직 계정이 없으신가요?
-      <a href="signup">회원가입</a>
+      <a href="${pageContext.request.contextPath}/signup">회원가입</a>
     </p>
 
   </section>

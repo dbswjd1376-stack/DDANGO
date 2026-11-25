@@ -13,7 +13,7 @@ public class UserLoginC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/main/login.jsp").forward(request, response);
 
     }
 
@@ -26,10 +26,10 @@ public class UserLoginC extends HttpServlet {
         String result = (String) request.getAttribute("loginResult");
 
         if ("success".equals(result)) {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect(request.getContextPath() + "/jsp/main/index.jsp");
 
         } else {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("/jsp/main/login.jsp").forward(request, response);
         }
 
     }

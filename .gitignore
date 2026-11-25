@@ -43,9 +43,21 @@ build/
 ### config ###
 src/main/resources/config.xml
 .idea/dataSources.local.xml
+<<<<<<< HEAD
 .idea/sqldialects.xml
 .idea/workspace.xml
 .idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3.xml
 .idea/dataSources/data_sources_history.xml
 .idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3/storage_v2/_src_/schema/SYS.rUIBAA.meta
 .idea/dataSources/6b3ffeac-369b-4637-85b0-fbf54aedadb3/storage_v2/_src_/schema/SYSTEM.L2avkg.meta
+=======
+.idea/dataSources.xml
+.idea/workspace.xml
+.idea/misc.xml
+.idea/dataSources/data_sources_history.xml
+.idea/dataSources/71d2e64a-5192-4268-9740-587a15dd1f76.xml
+.idea/dataSources/71d2e64a-5192-4268-9740-587a15dd1f76/storage_v2/_src_/schema/SYS.rUIBAA.meta
+.idea/dataSources/71d2e64a-5192-4268-9740-587a15dd1f76/storage_v2/_src_/schema/SYSTEM.L2avkg.meta
+.idea/sqldialects.xml
+.idea/data_source_mapping.xml
+>>>>>>> 897232a39d2622aff5fbe8120d67315610a098c0

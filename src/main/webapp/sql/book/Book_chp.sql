@@ -5,9 +5,9 @@ create table book_chapter (
     bc_title varchar2(200 char),
     bc_description varchar2(500 char),
 
-    CONSTRAINT FK_BC_BOOK FOREIGN KEY (b_id)
-        REFERENCES BOOK(b_id) ON DELETE CASCADE,  --책을 지우면 챕터도 같이 지움--
-    CONSTRAINT UQ_CHAPTER UNIQUE (b_id, bc_number)
+--     CONSTRAINT FK_BC_BOOK FOREIGN KEY (b_id)
+--         REFERENCES BOOK(b_id) ON DELETE CASCADE,  --책을 지우면 챕터도 같이 지움--
+--     CONSTRAINT UQ_CHAPTER UNIQUE (b_id, bc_number)
 
 );
 
