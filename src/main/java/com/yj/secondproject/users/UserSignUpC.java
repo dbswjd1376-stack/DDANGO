@@ -28,7 +28,7 @@ public class UserSignUpC extends HttpServlet {
 
         if ("success".equals(result)) {
             // 회원가입 성공 시 메인페이지 이동
-            response.sendRedirect(request.getContextPath() + "/jsp/main/index.jsp?signup=success");
+            response.sendRedirect(request.getContextPath() + "/main?signup=success");
 
         } else {
             // 회원가입 실패 시 회원가입 페이지 유지

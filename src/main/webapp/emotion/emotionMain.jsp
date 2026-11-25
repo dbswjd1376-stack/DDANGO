@@ -72,9 +72,37 @@
     <a href="${pageContext.request.contextPath}/api/music/recommend?tag=romantic">Last.fm 연결 테스트</a>
     <%--  세부 감정 분류 확인 하는 링크  --%>
     <a href="http://localhost:8080/api/music/recommend?mood=satisfaction">test</a>
+<%--  장르 태그  --%>
+    <div>
+        <button type="button" data-genre="pop">팝송</button>
+        <button type="button" data-genre="jpop">J-pop</button>
+        <button type="button" data-genre="kpop">K-pop</button>
+        <button type="button" data-genre="hiphop">힙합</button>
+        <button type="button" data-genre="ballad">발라드</button>
+    </div>
+
+    <p>지금 내 감정과 맞지 않는 항목, 듣고 싶지 않은 장르를 눌러 제외하세요.</p>
+
+    <button type="button" id="recommend-playlists">플리 추천받기</button>
+    <button type="button" id="toggle-target-mood"
+            aria-controls="target-mood-panel" aria-expanded="false">
+        바꾸고 싶은 감정
+    </button>
+    <button type="button" id="reset-music-filters">처음부터</button>
+
+    <div id="target-mood-panel" hidden>
+        <label for="target-mood">어떤 기분이 되고 싶나요?</label>
+        <select id="target-mood">
+            <option value="">현재 남은 감정으로 추천받기</option>
+        </select>
+    </div>
+
+    <p id="music-filter-status" role="status"></p>
+    <p id="music-playlist-query"></p>
+
     <%--  track 목록  --%>
-    <p id="music-status" role="status"></p>
-    <ul id="music-tracks"></ul>
+    <p id="playlist-status" role="status"></p>
+    <ul id="music-playlists"></ul>
     <%--  나오는 영상 화면 크기 및 화면 숨기는 기능  --%>
     <iframe id="music-player" title="Youtube 음악 플레이어"
     width="480" height="270" allowfullscreen
