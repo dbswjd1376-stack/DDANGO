@@ -41,7 +41,7 @@
                             else 0
                             END as hasChapter
 
-        FROM book Where hook.b_title like '%' || #{keyword} || '%'
+        FROM book Where book.b_title like '%' || #{keyword} || '%'
         order by book.b_id
 
     </select>
