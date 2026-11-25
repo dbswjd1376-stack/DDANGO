@@ -1,7 +1,6 @@
 package com.yj.secondproject.book;
 
 import com.yj.secondproject.DdangoDB;
-import com.yj.secondproject.TestDTO;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.http.HttpServletRequest;

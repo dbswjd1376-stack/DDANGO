@@ -108,14 +108,14 @@
             <div>
                 <span class="section-number">01 / EDITOR'S PICK</span>
                 <h2>우리가 먼저 들어봤어.</h2>
-                <p>개발자가 직접 고른, 오래 듣고 싶은 음악들.</p>
+                <p>노예들이 직접 고른, 오래 듣고 싶은 음악들.</p>
             </div>
             <button class="more" onclick="comingSoon()">모두 보기 ↗</button>
         </div>
 
         <div class="playlist-grid">
             <article class="playlist featured"
-                     data-title="퇴근길, 애매한 기분">
+                     data-title="코딩중, 살려주세요">
                 <div class="cover cover-peach">
                     <span class="tag">EDITOR'S PICK</span>
                     <strong class="cover-word">오늘은<br>그냥.</strong>
