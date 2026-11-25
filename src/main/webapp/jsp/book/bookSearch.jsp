@@ -99,6 +99,7 @@
     </div>
 
     <button type="submit">찾기</button>
+    <button type="submit">test</button>
 
 </form>
 <script>
