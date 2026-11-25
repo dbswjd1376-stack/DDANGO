@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -7,26 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDANGO | 그거 말고 딴거</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-   
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
+
 </head>
 
 <body>
 
 <header>
     <div class="header-inner">
-        <a href="index.jsp" class="logo">DDANGO<span>딴거</span></a>
+
+        <a href="index.jsp" class="logo">
+            DDANGO<span>딴거</span>
+        </a>
 
         <nav>
             <a href="index.jsp">DISCOVER</a>
-            <a href="#" onclick="return comingSoon(event)">감정별 노래추천</a>
+            <a href="emotion/emotionMain.jsp">감정별 노래추천</a>
             <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
         </nav>
 
-        <a href="login"><button class="login">로그인 ↗</button></a>
+        <div class="header-auth">
+
+            <c:choose>
+
+                <%-- 비로그인 상태 --%>
+                <c:when test="${empty sessionScope.loginUser}">
+
+                    <a href="signup" class="header-signup">
+                        회원가입
+                    </a>
+
+                    <a href="login" class="login">
+                        로그인 ↗
+                    </a>
+
+                </c:when>
+
+                <%-- 로그인 상태 --%>
+                <c:otherwise>
+
+                    <span class="header-nickname">
+                        <c:out value="${sessionScope.loginUser.u_nickname}"/>님
+                    </span>
+
+                    <form action="logout" method="post" class="logout-form">
+
+                        <button type="submit" class="logout">
+                            로그아웃 ↗
+                        </button>
+
+                    </form>
+
+                </c:otherwise>
+
+            </c:choose>
+
+        </div>
+
     </div>
 </header>
-
 <main>
     <section class="hero">
         <div>
