@@ -1,12 +1,8 @@
 package com.yj.secondproject.emotion;
 
-<<<<<<< HEAD
-=======
-import com.yj.secondproject.TestDAO;
 
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> 7eff1aab0f8123dea436629cf432ed72bb6ba686
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
