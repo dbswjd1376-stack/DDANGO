@@ -1,10 +1,60 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- 최종 추천 결과 출력 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>도서 검색 결과</title>
 </head>
 <body>
-<div>파일보존용</div>
+
+<h1>도서 검색 결과</h1>
+
+<c:choose>
+    <c:when test="${not empty books}">
+<%--        DB에서 검색한 책 목록이 비어 있지 않다면--%>
+
+        <c:forEach var="book" items="${books}">
+
+            <h2>${book.b_title}</h2>
+            <p>저자 : ${book.b_author}</p>
+            <p>장르 : ${book.b_genre}</p>
+            <p>도서 설명 : ${book.b_description}</p>
+
+            <p>입력한 문구 : ${quote}</p>
+
+            <!-- 전체 플레이리스트 추천 -->
+            <button type="button">
+                전체 플레이리스트 추천
+            </button>
+
+            <!-- 챕터가 있는 책만 -->
+            <c:if test="${book.hasChapter == 1}">
+                <button type="button">
+                    챕터별 플레이리스트 추천
+                    <br>
+                    <h3>챕터마다 달라지는 분위기에 맞춘 플레이리스트</h3>
+                </button>
+            </c:if>
+
+        </c:forEach>
+
+    </c:when>
+
+    <c:otherwise>
+        <p>DB에서 해당 도서를 찾을 수 없습니다.</p>
+        <p>AI 분석을 진행할 수 있습니다.</p>
+    </c:otherwise>
+</c:choose>
+
+<!-- 안내 메시지 -->
+<c:if test="${not empty message}">
+    <p>${message}</p>
+</c:if>
+
 </body>
 </html>
