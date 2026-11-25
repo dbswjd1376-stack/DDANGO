@@ -1,22 +1,12 @@
-<<<<<<< HEAD
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<<<<<<<< HEAD:src/main/webapp/jsp/main/index.jsp
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DDANGO | 그거 말고 딴거</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/src/main/webapp/css/index.css">
-=======
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
 
 </head>
 
@@ -25,22 +15,15 @@
 <header>
     <div class="header-inner">
 
-<<<<<<< HEAD
-        <a href="index.jsp" class="logo">
-=======
         <a href="${pageContext.request.contextPath}/jsp/main/index.jsp" class="logo">
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
+
             DDANGO<span>딴거</span>
         </a>
 
         <nav>
-<<<<<<< HEAD
-            <a href="index.jsp">DISCOVER</a>
-            <a href="../../emotion/emotionMain.jsp">감정별 노래추천</a>
-=======
+
             <a href="${pageContext.request.contextPath}/jsp/main/index.jsp">DISCOVER</a>
             <a href="${pageContext.request.contextPath}/emotion/emotionMain.jsp">감정별 노래추천</a>
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
             <a href="#" onclick="return comingSoon(event)">도서로 노래추천</a>
         </nav>
 
@@ -51,19 +34,12 @@
                 <%-- 비로그인 상태 --%>
                 <c:when test="${empty sessionScope.loginUser}">
 
-<<<<<<< HEAD
-                    <a href="signup" class="header-signup">
-                        회원가입
-                    </a>
-
-                    <a href="login" class="login">
-=======
                     <a href="${pageContext.request.contextPath}/signup" class="header-signup">
                         회원가입
                     </a>
 
                     <a href="${pageContext.request.contextPath}/login" class="login">
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
+
                         로그인 ↗
                     </a>
 
@@ -76,11 +52,8 @@
                         <c:out value="${sessionScope.loginUser.u_nickname}"/>님
                     </span>
 
-<<<<<<< HEAD
-                    <form action="logout" method="post" class="logout-form">
-=======
                     <form action="${pageContext.request.contextPath}/logout" method="post" class="logout-form">
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
+
 
                         <button type="submit" class="logout">
                             로그아웃 ↗
@@ -323,11 +296,7 @@
 </script>
 
 </body>
-<<<<<<< HEAD
-</html>
-========
+
 <jsp:forward page="/jsp/main/index.jsp" />
->>>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9:src/main/webapp/index.jsp
-=======
+
 </html>
->>>>>>> 8f0241723abf6f48c35e8ebb8775ba070b5ed3f9
