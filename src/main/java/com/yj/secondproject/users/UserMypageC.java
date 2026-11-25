@@ -15,7 +15,7 @@ public class UserMypageC extends HttpServlet {
 
 
         UserDAO.getUserInfo(request);
-        request.getRequestDispatcher("/jsp/main/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/main/mypage.jsp").forward(request, response);
 
     }
 

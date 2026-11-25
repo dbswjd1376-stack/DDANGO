@@ -57,6 +57,19 @@ public class MusicApiServlet extends HttpServlet {
         }
     }
 
+    private static String genreToTag(String genre) {
+        switch (genre) {
+            case "pop":     return "pop";
+            case "jpop":    return "jpop";
+            case "kpop":    return "kpop";
+            case "hiphop":  return "hiphop";
+            case "ballad":  return "ballad";
+            default:
+                return "null";
+        }
+    }
+
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String path = request.getPathInfo();
@@ -66,17 +79,18 @@ public class MusicApiServlet extends HttpServlet {
         if ("/recommend".equals(path)) {
             // 브라우저가 보낸 세부 감정
             String mood = request.getParameter("mood");
+            String genre = request.getParameter("genre");
 
+            String tag = genre == null ? MOOD_TO_TAG.get(mood) : genreToTag(genre);
             // 서버에서 정해 둔 Last.fm 검색 태그
-            String tag = MOOD_TO_TAG.get(mood);
 
             if (tag == null) {
-                response.sendError(400, "Unknown mood");
+                response.sendError(400, "Unknown mood or genre");
                 return;
             }
             keyName = "LASTFM_API_KEY";
             endpoint = "https://ws.audioscrobbler.com/2.0/"
-                    + "?method=tag.gettoptracks&format=json&limit=5"
+                    + "?method=tag.gettoptracks&format=json&limit=10"
                     + "&tag=" + encode(tag) + "&api_key=";
         } else if ("/video".equals(path)) {
             String query = request.getParameter("q");
@@ -89,7 +103,18 @@ public class MusicApiServlet extends HttpServlet {
             endpoint = "https://www.googleapis.com/youtube/v3/search"
                     + "?part=snippet&type=video&videoEmbeddable=true&maxResults=1"
                     + "&q=" + encode(query.trim()) + "&key=";
-        }else {
+        } else if ("/playlists".equals(path)) {
+            String query = request.getParameter("q");
+
+            if (query == null || query.trim().isEmpty() || query.length() > 100){
+                response.sendError(400, "Invalid search query");
+                return;
+            }
+            keyName = "YOUTUBE_API_KEY";
+            endpoint = "https://www.googleapis.com/youtube/v3/search"
+                    + "?part=snippet&type=playlist&maxResults=10"
+                    + "&q=" + encode(query.trim()) + "&key=";
+        } else {
             response.sendError(404);
             return;
         }

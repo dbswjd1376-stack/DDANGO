@@ -9,7 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="" />
+=======
+    <list default="true" id="658a580b-7586-4558-883a-d84c8dbd481e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/main/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserMypageC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserMypageC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/playlist/PlayListC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/playlist/PlayListC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLogOutC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLogOutC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLoginC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserLoginC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserSignUpC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yj/secondproject/users/UserSignUpC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/main/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/main/signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/playlist/playListMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/jsp/playlist/playListMain.jsp" afterDir="false" />
+    </list>
+>>>>>>> 2ec4394ddf9c8864695e157eeeb88400e9efb8a8
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +47,7 @@
         <option value="Class" />
         <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -70,6 +92,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.SecondProject [clean].executor": "Run",
+    "Maven.SecondProject [validate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 9.0.123.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "#25 on yj",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/SB/Second Project/DDANGO/src/main/webapp",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings"
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Maven.SecondProject [clean].executor&quot;: &quot;Run&quot;,
