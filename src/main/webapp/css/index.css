@@ -836,3 +836,30 @@ footer span {
     background-color: var(--black);
     color: var(--white);
 }
+
+/* 마이페이지 버튼 */
+
+.mypage-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    background-color: var(--black);
+    color: var(--white);
+
+    border: 1px solid var(--black);
+    border-radius: 40px;
+
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: 0.2s;
+}
+
+.mypage-link:hover {
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
