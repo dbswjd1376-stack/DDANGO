@@ -5,6 +5,85 @@ const player = document.getElementById("music-player");
 const playlists = document.getElementById("music-playlists");
 const playlistStatus = document.getElementById("playlist-status");
 
+async function loadStoredPlaylists(moodCodes, genreCode) {
+    playlists.replaceChildren();
+    tracks.replaceChildren();
+    statusText.textContent = "";
+    playlistStatus.textContent = "저장된 플리를 찾는 중…";
+
+    try {
+        const params = new URLSearchParams({ genre: genreCode });
+
+        // mood=unrequited-love&mood=loneliness처럼 같은 이름으로 여러 번 보내요.
+        moodCodes.forEach((code) => params.append("mood", code));
+
+        const results = await fetchMusic("/db-playlists", params);
+
+        for (const playlist of results) {
+            const item = document.createElement("li");
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = playlist.title;
+            button.addEventListener("click", () => loadStoredTracks(playlist));
+            item.appendChild(button);
+            playlists.appendChild(item);
+        }
+
+        playlistStatus.textContent = results.length
+            ? "플리를 선택해 주세요."
+            : "이 감정과 장르 조합으로 저장된 플리가 없어요.";
+    } catch (error) {
+        playlistStatus.textContent = error.message;
+    }
+}
+
+let trackRequest = 0;
+
+async function loadStoredTracks(playlist) {
+    const request = ++trackRequest;
+    tracks.replaceChildren();
+    statusText.textContent = playlist.title + " 곡을 불러오는 중…";
+
+    try {
+        const rows = await fetchMusic("/db-playlist-tracks", {
+            playlistId: playlist.playlistId
+        });
+        if (request !== trackRequest) return;
+
+        // 기존 playFromTrack()이 쓰는 song.artist.name 형태에 맞춰요.
+        const songs = rows.map((row) => ({
+            ...row,
+            artist: { name: row.artistName }
+        }));
+
+        songs.forEach((song, index) => {
+            const item = document.createElement("li");
+            const button = document.createElement("button");
+            button.type = "button";
+
+            if (song.imageUrl?.startsWith("https://")) {
+                const image = document.createElement("img");
+                image.src = song.imageUrl;
+                image.alt = "";
+                image.width = 64;
+                image.height = 64;
+                image.loading = "lazy";
+                button.appendChild(image);
+            }
+
+            button.append(song.name + " — " + song.artist.name);
+            button.addEventListener("click", () => playFromTrack(songs, index));
+            item.appendChild(button);
+            tracks.appendChild(item);
+        });
+
+        statusText.textContent = songs.length
+            ? playlist.title + " · " + songs.length + "곡"
+            : "이 플리에 저장된 곡이 없어요.";
+    } catch (error) {
+        if (request === trackRequest) statusText.textContent = error.message;
+    }
+}
 // API 요청 function
 async function fetchMusic(path, params) {
     const url = music.dataset.api + path + "?" + new URLSearchParams(params);
@@ -239,46 +318,22 @@ resetButton.addEventListener("click", () => {
     updateRemaining();
 });
 
-recommendButton.addEventListener("click", () => {
-    // 목표 감정을 선택했다면 그 감정으로, 아니면 남은 감정으로 플리 만들기
-    const moods = targetMood.value
-        ? moodButtons.filter((button) => button.dataset.mood === targetMood.value)
-        : moodButtons.filter((button) => !button.hidden);
+recommendButton.addEventListener("click", async () => {
+    // 목표 감정이 있으면 그 감정을, 없으면 남은 감정 전부를 사용해요.
+    const moodCodes = targetMood.value
+        ? [targetMood.value]
+        : moodButtons.filter((button) => !button.hidden)
+            .map((button) => button.dataset.mood);
+
     const genres = genreButtons.filter((button) => !button.hidden);
 
-    // 같은 장르만 먼저 나열되지 않도록 장르를 번갈아 배치
-    const pairs = moods.flatMap((mood, moodIndex) =>
-        genres.map((_, index) => ({
-            mood,
-            genre: genres[(moodIndex + index) % genres.length]
-        }))
-    ).slice(0, 10);
-
-    playlists.replaceChildren();
-    tracks.replaceChildren();
-    statusText.textContent = "";
-    playlistQuery.textContent = "";
-
-    for (const { mood, genre } of pairs) {
-        const title = mood.textContent.trim() + " + " + genre.textContent.trim();
-        const item = document.createElement("li");
-        const button = document.createElement("button");
-
-        button.type = "button";
-        button.textContent = title;
-        button.addEventListener("click", () => {
-            playlistQuery.textContent = title;
-            // 여기서 기존 Java /recommend를 통해 Last.fm 곡을 가져옴
-            loadTracks(mood.dataset.mood, genre.dataset.genre);
-        });
-
-        item.appendChild(button);
-        playlists.appendChild(item);
+    if (!moodCodes.length || genres.length !== 1) {
+        playlistStatus.textContent = "감정을 하나 이상, 장르를 하나 남겨 주세요.";
+        return;
     }
 
-    playlistStatus.textContent = pairs.length
-        ? "플레이리스트를 선택하면 곡 목록이 열려요."
-        : "감정과 장르를 하나 이상 남겨 주세요.";
+    playlistQuery.textContent = "";
+    await loadStoredPlaylists(moodCodes, genres[0].dataset.genre);
 });
 
 updateRemaining();
