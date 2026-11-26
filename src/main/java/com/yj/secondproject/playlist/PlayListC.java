@@ -17,4 +17,9 @@ public class PlayListC extends HttpServlet {
         request.setAttribute("content", "/jsp/playlist/playListMain.jsp");
         request.getRequestDispatcher("/jsp/main/index.jsp").forward(request, response);
     }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        
+    }
 }

@@ -60,12 +60,4 @@
         ORDER BY bc_number
     </select>
 
-    <!-- 플리관련 -->
-
-    <!-- 플리 전체 조회 -->
-
-    <select id="selectAllPlayList" resultType="com.yj.secondproject.playlist.PlayListDTO">
-        select * from PlayList
-    </select>
-
 </mapper>
