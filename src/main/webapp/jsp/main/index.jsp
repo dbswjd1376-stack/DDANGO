@@ -51,7 +51,7 @@
                 DISCOVER
             </a>
 
-            <a href="${pageContext.request.contextPath}/emotion/emotionMain.jsp">
+            <a href="${pageContext.request.contextPath}/emotion">
                 감정별 노래추천
             </a>
 

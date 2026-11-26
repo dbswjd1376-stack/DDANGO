@@ -34,6 +34,6 @@ public class PlayListAddC extends HttpServlet {
         // 플레이 리스트를 추가해야함 (multipart 파일 업로드는 POST)
         PlayListDAO.addPlayList(request);
 
-        response.sendRedirect(request.getContextPath() + "/pl-c");
+        response.sendRedirect(request.getContextPath() + "/plUser-c");
     }
 }
