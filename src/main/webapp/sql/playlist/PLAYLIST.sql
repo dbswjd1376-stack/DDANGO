@@ -4,8 +4,9 @@ create table PLAYLIST(
     p_name varchar2(30 char) not null,
     p_description varchar2 (100 char) not null,
     m_type number(20) not null ,
-    p_date date not null,
-    u_id varchar2(30 char) not null
+    p_date date default sysdate,
+    u_id not null,
+    constraint fk_playlist_user foreign key (u_id) references USERS(u_id)
 
 );
 

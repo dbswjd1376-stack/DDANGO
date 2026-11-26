@@ -42,4 +42,8 @@ build/
 
 ### config ###
 src/main/resources/config.xml
+<<<<<<< HEAD
 .idea/
+=======
+.idea/
+>>>>>>> 8d009cb98ca855223dd577b1cc3e468cfa46cc83

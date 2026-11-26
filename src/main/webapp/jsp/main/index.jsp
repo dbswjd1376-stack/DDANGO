@@ -5,9 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>DDANGO | 그거 말고 딴거</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- 공통 CSS -->
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/css/index.css">
+
+    <!-- 로그인 페이지 CSS -->
+    <c:if test="${content == '/jsp/main/login.jsp'}">
+
+        <link rel="stylesheet"
+              href="${pageContext.request.contextPath}/css/signup.css">
+
+        <link rel="stylesheet"
+              href="${pageContext.request.contextPath}/css/login.css">
+
+    </c:if>
 
 </head>
 
@@ -23,6 +40,7 @@
 
 
         <nav>
+
             <a href="${pageContext.request.contextPath}/main">
                 DISCOVER
             </a>
@@ -31,9 +49,10 @@
                 감정별 노래추천
             </a>
 
-            <a href="#" onclick="return comingSoon(event)">
+            <a href="${pageContext.request.contextPath}/jsp/book/bookSearch.jsp">
                 도서로 노래추천
             </a>
+
         </nav>
 
         <div class="header-auth">
@@ -98,9 +117,10 @@
     const contextPath = "${pageContext.request.contextPath}";
 </script>
 
-<script src="${pageContext.request.contextPath}/js/main/index.js">
+<script src="${pageContext.request.contextPath}/js/main/index.js"></script>
 
-</script>
+</body>
+</html>
 
 </body>
 </html>
