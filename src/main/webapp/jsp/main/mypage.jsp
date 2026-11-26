@@ -329,7 +329,7 @@
             <p>나만의 플레이리스트를 만나보세요.</p>
 
             <button type="button"
-                    onclick="location.href='${pageContext.request.contextPath}/pl-c'">
+                    onclick="location.href='/jsp/playlist/playListUser.jsp'">
                 내 플레이리스트 보기 ↗
             </button>
 
