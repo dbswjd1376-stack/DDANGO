@@ -120,6 +120,77 @@ public class UserDAO {
     }
 
 
+    // 4. 닉네임 수정
+    public static void updateNickname(HttpServletRequest request) {
+
+        SqlSession ss = null;
+
+        try {
+
+            ss = DdangoDB.connect();
+
+            // Session에 저장된 로그인 회원정보 가져오기
+            UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginUser");
+
+            // 회원번호 가져오기
+            int u_id = loginUser.getU_id();
+
+            // JSP에서 입력한 새로운 닉네임 가져오기
+            String nickname = request.getParameter("nickname");
+
+            // 닉네임 입력값 검사
+            if (nickname == null || nickname.trim().isEmpty() || nickname.trim().length() > 50) {
+                request.setAttribute("nicknameResult", "invalid");
+                return;
+
+            }
+            nickname = nickname.trim();
+
+            // HashMap에 데이터 담기
+            HashMap<String, Object> vals = new HashMap<>();
+
+            vals.put("u_id", u_id);
+            vals.put("nickname", nickname);
+
+            // 닉네임 수정
+            if (ss.update("ddango.updateNickname", vals) == 1) {
+
+                System.out.println("닉네임 수정 성공");
+
+                ss.commit();
+
+                // Session에 저장된 닉네임도 수정
+                loginUser.setU_nickname(nickname);
+
+                request.getSession().setAttribute("loginUser", loginUser);
+
+                request.setAttribute("nicknameResult", "success");
+
+            } else {
+
+                System.out.println("닉네임 수정 실패");
+
+                request.setAttribute("nicknameResult", "fail");
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            request.setAttribute("nicknameResult", "fail");
+
+        } finally {
+
+            if (ss != null) {
+                ss.close();
+            }
+
+        }
+
+    }
+
+
 
 
 
