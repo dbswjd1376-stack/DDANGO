@@ -69,9 +69,9 @@
     <button type="button" data-mood="unrequited-love" data-tag="sad">짝사랑</button>
     <button type="button" data-mood="love" data-tag="love">사랑</button>
     <%-- api 들어갔는지 확인 하는 용 링크 --%>
-    <a href="${pageContext.request.contextPath}/api/music/recommend?tag=romantic">Last.fm 연결 테스트</a>
+<%--    <a href="${pageContext.request.contextPath}/api/music/recommend?tag=romantic">Last.fm 연결 테스트</a>--%>
     <%--  세부 감정 분류 확인 하는 링크  --%>
-    <a href="http://localhost:8080/api/music/recommend?mood=satisfaction">test</a>
+<%--    <a href="http://localhost:8080/api/music/recommend?mood=satisfaction">test</a>--%>
 <%--  장르 태그  --%>
     <div>
         <button type="button" data-genre="pop">팝송</button>
@@ -105,8 +105,8 @@
     <p id="music-playlist-query"></p>
 
     <%--  track 목록  --%>
-    <p id="playlist-status" role="status"></p>
-    <ul id="music-playlists"></ul>
+<%--    <p id="playlist-status" role="status"></p>--%>
+<%--    <ul id="music-playlists"></ul>--%>
     <%--  나오는 영상 화면 크기 및 화면 숨기는 기능  --%>
     <iframe id="music-player" title="Youtube 음악 플레이어"
     width="480" height="270" allowfullscreen
