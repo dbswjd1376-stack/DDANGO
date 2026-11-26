@@ -5,11 +5,11 @@
 <section class="music-section playlist-page">
     <div class="section-top">
         <div>
-            <span class="section-number">ALL PLAYLISTS / DISCOVER</span>
-            <h2>나만의 딴 리스트</h2>
-            <p>당신만의 딴거를 확인해보세요!</p>
+            <span class="section-number">MY PLAYLIST</span>
+            <h2>내가 만든 딴거</h2>
+            <p>나만의 취향이 담긴 플레이리스트를 구경해 보세요.</p>
         </div>
-        <button type="button" class="more" onclick="comingSoon()">플리 만들기 +</button>
+        <button type="button" class="more" onclick=location.href="/plAdd-c">플리 만들기 +</button>
     </div>
 
     <c:choose>
@@ -27,13 +27,7 @@
                                 <img class="cover-img" src="${p.p_img}" alt="${p.p_name}">
                             </c:if>
 
-                            <span class="tag">
-                                <c:choose>
-                                    <c:when test="${p.m_type == 1}">EDITOR'S PICK</c:when>
-                                    <c:when test="${p.m_type == 2}">USER MIX</c:when>
-                                    <c:otherwise>PLAYLIST</c:otherwise>
-                                </c:choose>
-                            </span>
+                            <span class="tag">PLAYLIST</span>
 
                             <span class="cover-bottom">NO. ${p.p_id}</span>
                             <button type="button" class="play-circle" aria-label="플리 보기">▶</button>

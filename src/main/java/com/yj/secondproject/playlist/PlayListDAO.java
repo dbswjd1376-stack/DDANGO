@@ -46,8 +46,6 @@ public class PlayListDAO {
 
             String pName = mr.getParameter("pl_name");
             String pDesc = mr.getParameter("pl_desc");
-            String typeStr = mr.getParameter("type");
-            int mType = "AI".equals(typeStr) ? 2 : 1;
 
             String fileName = mr.getFilesystemName("pl_img");
             String pImg = (fileName != null)
@@ -57,7 +55,7 @@ public class PlayListDAO {
             UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginUser");
             int uId = loginUser.getU_id();
 
-            PlayListDTO dto = new PlayListDTO(0, pImg, pName, pDesc, mType, null, uId);
+            PlayListDTO dto = new PlayListDTO(0, pImg, pName, pDesc, null, uId);
 
             sqlSession = DdangoDB.connect();
             if (sqlSession.insert("ddango_pl.insertPlayList", dto) == 1) {
