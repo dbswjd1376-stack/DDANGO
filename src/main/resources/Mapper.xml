@@ -44,6 +44,7 @@
                             END as hasChapter
 
         FROM book Where hook.b_title like '%' || #{keyword} || '%'
+        FROM book Where book.b_title like '%' || #{keyword} || '%'
         order by book.b_id
 
     </select>
@@ -60,6 +61,17 @@
         ORDER BY bc_number
     </select>
 
+<<<<<<< HEAD
+=======
+    <select id="debugChapterCount" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM book_chapter
+        WHERE b_id = #{bId}
+    </select>
+
+
+
+
     <!-- 플리관련 -->
 
     <!-- 플리 전체 조회 -->
@@ -68,4 +80,5 @@
         select * from PlayList
     </select>
 
+>>>>>>> 6c91ce9e6243ba298a3fe1b3b84f4b8cb9f472c5
 </mapper>

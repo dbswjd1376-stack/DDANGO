@@ -21,6 +21,81 @@ async function fetchMusic(path, params) {
 
     return data;
 }
+async function loadTracks(moodCode, genreCode) {
+    tracks.replaceChildren();
+    statusText.textContent = "Last.fm 추천곡을 불러오는 중…";
+
+    try {
+        // Java가 세부 감정 코드를 Last.fm 태그로 바꿔서 검색
+        // Servlet에 감정과 장르를 각각 요청
+// 예: mood=unrequited-love → sad, genre=jpop → j-pop
+        const [moodData, genreData] = await Promise.all([
+            fetchMusic("/recommend", { mood: moodCode }),
+            fetchMusic("/recommend", { genre: genreCode })
+        ]);
+
+        const moodSongs = moodData.tracks?.track ?? [];
+        const genreSongs = genreData.tracks?.track ?? [];
+
+// 장르 목록의 곡 주소를 모아 감정 목록에서도 같은 곡을 찾음
+        // 감정 인기곡 목록에 들어 있는 곡 주소를 모아요.
+        const moodTrackUrls = new Set(
+            moodSongs.map((song) => song.url).filter(Boolean)
+        );
+
+// 선택 장르 안에서 감정 목록에도 있는 곡을 먼저 보여줘요.
+        const matchedSongs = genreSongs.filter((song) => moodTrackUrls.has(song.url));
+        const otherGenreSongs = genreSongs.filter((song) => !moodTrackUrls.has(song.url));
+        const songs = [...matchedSongs, ...otherGenreSongs];
+        for (const song of songs) {
+            const item = document.createElement("li");
+            const card = document.createElement("button");
+            card.type = "button";
+
+            // 이미지가 있으면 large 크기를 우선 사용해요.
+            const imageUrl = song.image?.find(
+                (image) => image.size === "large"
+            )?.["#text"];
+
+            if (imageUrl?.startsWith("https://")) {
+                const image = document.createElement("img");
+                image.src = imageUrl;
+                image.alt = "";
+                image.width = 96;
+                image.height = 96;
+                image.loading = "lazy";
+                card.appendChild(image);
+            }
+
+            const title = document.createElement("strong");
+            title.textContent = song.name;
+
+            const artist = document.createElement("span");
+            artist.textContent = song.artist.name;
+
+            // 카드를 누른 곡만 YouTube에서 검색해요.
+            card.addEventListener("click", () => loadVideo(song));
+            card.append(title, " — ", artist);
+
+            item.appendChild(card);
+            tracks.appendChild(item);
+        }
+
+        statusText.textContent = songs.length
+            ? ""
+            : "이 감정과 장르의 인기곡 목록에 공통으로 들어 있는 곡이 없어요.";
+    } catch (error) {
+        statusText.textContent = "Last.fm 추천 실패 (" + error.message + ")";
+    }
+    if (!songs.length) {
+        statusText.textContent = "선택한 장르의 곡을 가져오지 못했어요.";
+    } else if (!matchedSongs.length) {
+        statusText.textContent =
+            "두 목록에 공통으로 들어 있는 곡이 없어 선택한 장르의 인기곡을 보여드려요.";
+    } else {
+        statusText.textContent = "감정에도 맞는 곡을 먼저 보여드려요.";
+    }
+}
 
 async function loadPlaylists(searchText) {
     playlists.replaceChildren();
@@ -191,7 +266,10 @@ recommendButton.addEventListener("click", async () => {
     try {
         // 기존 loadPlaylists()가 뒤에 " playlist"를 자동으로 붙임
         // 예: calm kpop playlist
-        await loadPlaylists(moodTag + " " + genreTag);
+        await Promise.all([
+            loadTracks(mood.dataset.mood, genre.dataset.genre),
+            loadPlaylists(moodName + " " + genreName)
+        ]);
 
         nextPairIndex++;
         recommendButton.textContent =

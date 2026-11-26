@@ -97,6 +97,10 @@
         </select>
     </div>
 
+    <h2>추천곡</h2>
+    <p id="music-status" role="status"></p>
+    <ul id="music-tracks"></ul>
+
     <p id="music-filter-status" role="status"></p>
     <p id="music-playlist-query"></p>
 
