@@ -60,6 +60,7 @@
         ORDER BY bc_number
     </select>
 
+
     <select id="debugChapterCount" parameterType="int" resultType="int">
         SELECT COUNT(*)
         FROM book_chapter
