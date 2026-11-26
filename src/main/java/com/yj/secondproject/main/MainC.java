@@ -11,8 +11,15 @@ import java.io.IOException;
 public class MainC extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("content", "/jsp/main/home.jsp");
+        request.getRequestDispatcher("/jsp/main/index.jsp").forward(request, response);
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 플리 추가 페이지로 보내주기
+
+        request.setAttribute("content", "/jsp/playlist/playListAdd.jsp");
         request.getRequestDispatcher("/jsp/main/index.jsp").forward(request, response);
     }
 }

@@ -15,9 +15,11 @@
                 <a href="${pageContext.request.contextPath}/pl-c"><button class="primary" >
                     플리 구경하기 ↗
                 </button></a>
-                <button onclick="comingSoon()">
+                <form action="/main" method="post">
+                <button>
                     내 플리 만들기
                 </button>
+                </form>
             </div>
         </div>
 
@@ -93,7 +95,7 @@
             <h2>네 취향도 들려줄래?</h2>
             <p>좋아하는 노래를 담고, 누군가의 새로운 딴거가 되어줘.</p>
         </div>
-        <button onclick="comingSoon()">내 플레이리스트 만들기 ↗</button>
+        <button onclick=location.href="/plAdd-c">내 플레이리스트 만들기 ↗</button>
     </section>
 
     <!-- 유저 플리 -->
