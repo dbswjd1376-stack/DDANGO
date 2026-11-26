@@ -21,6 +21,16 @@
        update USERS set u_nickname = #{nickname} where u_id = #{u_id}
     </update>
 
+    <!-- 4. 비밀번호 수정 -->
+    <update id="updatePassword">
+        update USERS set u_password = #{newPassword} where u_id = #{u_id} and u_password = #{currentPassword}
+    </update>
+
+    <!-- 5. 회원 탈퇴 -->
+    <delete id="deleteUser">
+        delete from USERS where u_id = #{u_id} and u_password = #{currentPassword}
+    </delete>
+
 
     <!-- 책 관련 -->
 
