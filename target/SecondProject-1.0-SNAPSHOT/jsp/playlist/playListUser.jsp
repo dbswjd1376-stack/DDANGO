@@ -6,8 +6,8 @@
     <div class="section-top">
         <div>
             <span class="section-number">ALL PLAYLISTS / DISCOVER</span>
-            <h2>지금 올라온 딴거들.</h2>
-            <p>다른 사람들의 취향이 담긴 플레이리스트를 구경해 보세요.</p>
+            <h2>나만의 딴 리스트</h2>
+            <p>당신만의 딴거를 확인해보세요!</p>
         </div>
         <button type="button" class="more" onclick="comingSoon()">플리 만들기 +</button>
     </div>

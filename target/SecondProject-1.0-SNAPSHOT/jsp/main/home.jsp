@@ -15,8 +15,8 @@
                 <a href="${pageContext.request.contextPath}/pl-c"><button class="primary" >
                     플리 구경하기 ↗
                 </button></a>
-                <form action="/main" method="post">
-                <button>
+
+                <button onclick=location.href="/plAdd-c">
                     내 플리 만들기
                 </button>
                 </form>
