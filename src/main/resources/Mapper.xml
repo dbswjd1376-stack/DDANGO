@@ -35,6 +35,7 @@
         b_description,
         b_quote,
         b_image,
+        b_mood,
         case <!--챕터 데이터 존재 여부 확인해서 챕터별 플레이리스트 버튼 표시 여부를 판단-->
             when exists ( select 1 from book_chapter
                             where book_chapter.b_id = book.b_id

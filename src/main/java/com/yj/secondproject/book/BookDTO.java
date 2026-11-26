@@ -17,5 +17,6 @@ public class BookDTO {
     private String b_image;
     private String b_content;
     private int hasChapter;
+    private String b_mood;
 
 }
