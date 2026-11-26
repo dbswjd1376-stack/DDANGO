@@ -23,7 +23,13 @@
 
         <link rel="stylesheet"
               href="${pageContext.request.contextPath}/css/login.css">
+    </c:if>
 
+
+    <!-- 마이페이지 CSS -->
+    <c:if test="${content == '/jsp/main/mypage.jsp'}">
+        <link rel="stylesheet"
+              href="${pageContext.request.contextPath}/css/mypage.css">
     </c:if>
 
 </head>
@@ -120,12 +126,4 @@
 <script src="${pageContext.request.contextPath}/js/main/index.js"></script>
 
 </body>
-</html>
-
-</body>
-</html>
-
-</body>
-
-
 </html>
