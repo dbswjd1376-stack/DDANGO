@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ddango">
+
+    <!-- USERS 회원 관리 -->
+
+    <!-- 1. 회원가입 -->
+    <insert id="insertUser">
+        insert into USERS (u_id, u_login_id, u_password, u_nickname, u_email) values (USERS_SEQ.NEXTVAL, #{u_login_id}, #{u_password}, #{u_nickname}, #{u_email})
+    </insert>
+
+    <!-- 2. 로그인 -->
+    <select id="loginUser" resultType="com.yj.secondproject.users.UserDTO">
+        select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
+    </select>
+
+    <!-- 3. 닉네임 수정 -->
+    <update id="updateNickname">
+       update USERS set u_nickname = #{nickname} where u_id = #{u_id}
+    </update>
+
+    <!-- 4. 비밀번호 수정 -->
+    <update id="updatePassword">
+        update USERS set u_password = #{newPassword} where u_id = #{u_id} and u_password = #{currentPassword}
+    </update>
+
+    <!-- 5. 회원 탈퇴 -->
+    <delete id="deleteUser">
+        delete from USERS where u_id = #{u_id} and u_password = #{currentPassword}
+    </delete>
+
+
+    <!-- 책 관련 -->
+
+    <!-- 3. 마이페이지 회원정보 조회 -->
+    <select id="getUserInfo" resultType="com.yj.secondproject.users.UserDTO">
+        select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_id = #{u_id}
+
+    </select>
+
+
+    <!-- 1. 책 제목 검색 -->
+    <select id="searchBookByTitle" parameterType="string" resultType="com.yj.secondproject.book.BookDTO">
+        select  b_id,
+        b_title,
+        b_author,
+        b_genre,
+        b_description,
+        b_quote,
+        b_image,
+        case <!--챕터 데이터 존재 여부 확인해서 챕터별 플레이리스트 버튼 표시 여부를 판단-->
+            when exists ( select 1 from book_chapter
+                            where book_chapter.b_id = book.b_id
+                            )
+                            then 1
+                            else 0
+                            END as hasChapter
+
+        FROM book Where hook.b_title like '%' || #{keyword} || '%'
+        FROM book Where book.b_title like '%' || #{keyword} || '%'
+        order by book.b_id
+
+    </select>
+
+    <!-- 2. 책에 해당하는 챕터 목록 조회-->
+    <select id="getChapterByBookId" parameterType="string" resultType="com.yj.secondproject.book.BookChapterDTO">
+        select bc_id,
+        b_id,
+        bc_number,
+        bc_title,
+        bc_description
+        FROM book_chapter
+        WHERE b_id = #{bId}
+        ORDER BY bc_number
+    </select>
+
+    <select id="debugChapterCount" parameterType="int" resultType="int">
+        SELECT COUNT(*)
+        FROM book_chapter
+        WHERE b_id = #{bId}
+    </select>
+
+</mapper>
