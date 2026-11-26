@@ -52,7 +52,10 @@
         </button>
     </div>
 
+    <div class="search-buttons">
     <button type="submit">찾기</button>
+    <button type="button" onclick="resetSearch()">초기화</button>
+    </div>
 </form>
 
 <div id="searchResult"></div>

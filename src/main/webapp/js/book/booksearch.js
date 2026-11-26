@@ -67,3 +67,27 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
         });
 
 });
+
+
+// 초기화 버튼 클릭 시 실행
+function resetSearch() {
+
+    // 입력한 내용 모두 초기화
+    document.getElementById("searchForm").reset();
+
+    // 검색 결과 삭제
+    document.getElementById("searchResult").innerHTML = "";
+
+    // 추천 방식 버튼 선택 상태 초기화
+    const buttons = document.querySelectorAll(".mode-btn");
+
+    buttons.forEach(function(btn) {
+        btn.classList.remove("active");
+    });
+
+    // 전체 플리 버튼을 다시 선택
+    buttons[0].classList.add("active");
+
+    // YOUR BOOK JOURNEY 초기 문구로 변경
+    updateJourney();
+}
