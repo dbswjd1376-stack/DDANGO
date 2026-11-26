@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -17,5 +19,6 @@ public class BookDTO {
     private String b_image;
     private String b_content;
     private int hasChapter;
+    private List<MoodDTO> moods;
 
 }
