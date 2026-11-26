@@ -97,11 +97,9 @@
         </select>
     </div>
 
-    <h2>추천 플레이리스트</h2>
     <p id="playlist-status" role="status"></p>
     <ul id="music-playlists"></ul>
 
-    <h2>선택한 플리의 곡</h2>
     <p id="music-status" role="status"></p>
     <ul id="music-tracks"></ul>
 

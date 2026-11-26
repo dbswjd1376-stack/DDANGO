@@ -1,7 +1,15 @@
 package com.yj.secondproject.emotion;
 
 
+import com.google.gson.Gson;
+import com.yj.secondproject.DdangoDB;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +22,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Set;
 
 @WebServlet("/api/music/*")
 public class MusicApiServlet extends HttpServlet {
@@ -69,10 +78,67 @@ public class MusicApiServlet extends HttpServlet {
         }
     }
 
+    private void writeJson(HttpServletResponse response, Object data)
+            throws IOException {
+        response.setContentType("application/json;charset=UTF-8");
+        new Gson().toJson(data, response.getWriter());
+    }
+
+
+
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String path = request.getPathInfo();
+
+        if ("/db-playlists".equals(path)) {
+            String genre = request.getParameter("genre");
+            String[] moodValues = request.getParameterValues("mood");
+
+            if (genre == null || !genre.matches("pop|jpop|kpop|hiphop|ballad")
+                    || moodValues == null || moodValues.length > 53) {
+                response.sendError(400, "Invalid moods or genre");
+                return;
+            }
+
+            // 같은 감정이 두 번 넘어오면 한 번만 사용합니다.
+            Set<String> moods = new LinkedHashSet<>();
+            for (String mood : moodValues) {
+                if (!MOOD_TO_TAG.containsKey(mood)) {
+                    response.sendError(400, "Unknown mood");
+                    return;
+                }
+                moods.add(mood);
+            }
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("genre", genre);
+            params.put("moods", moods);
+            params.put("moodCount", moods.size());
+
+            try (SqlSession session = DdangoDB.connect()) {
+                writeJson(response, session.selectList("PlaylistMapper.findPlaylists", params));
+            }
+            return;
+        }
+
+        if ("/db-playlist-tracks".equals(path)) {
+            long playlistId = 0;
+            try (SqlSession session = DdangoDB.connect()) {
+                writeJson(response, session.selectList("PlaylistMapper.findPlaylists", path));
+            } catch (NumberFormatException e) {
+                response.sendError(400, "Invalid playlist ID");
+                return;
+            }
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("playlistId", playlistId);
+
+            try (SqlSession session = DdangoDB.connect()) {
+                writeJson(response, session.selectList("PlaylistMapper.findPlaylists", params));
+            }
+            return;
+        }
         System.out.println(path);
         String keyName;
         String endpoint;

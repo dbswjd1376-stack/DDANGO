@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PlaylistMapper">
+
+    <select id="findPlaylists" resultType="map">
+        SELECT p.PLAYLIST_ID AS "playlistId",
+        p.TITLE AS "title"
+        FROM COMBINATION c
+        JOIN REC_PLAYLIST p ON p.COMBINATION_ID = c.COMBINATION_ID
+        WHERE c.GENRE_CODE = #{genre}
+        AND (
+        SELECT COUNT(*)
+        FROM COMBINATION_MOOD m
+        WHERE m.COMBINATION_ID = c.COMBINATION_ID
+        ) = #{moodCount}
+        AND (
+        SELECT COUNT(*)
+        FROM COMBINATION_MOOD m
+        WHERE m.COMBINATION_ID = c.COMBINATION_ID
+        AND m.MOOD_CODE IN
+        <foreach collection="moods" item="mood"
+                 open="(" separator="," close=")">
+            #{mood}
+        </foreach>
+        ) = #{moodCount}
+        ORDER BY p.DISPLAY_ORDER, p.PLAYLIST_ID
+        FETCH FIRST 10 ROWS ONLY
+    </select>
+
+    <select id="findTracks" resultType="map">
+        SELECT TRACK_ORDER AS "trackOrder",
+        TRACK_NAME AS "name",
+        ARTIST_NAME AS "artistName",
+        IMAGE_URL AS "imageUrl",
+        LASTFM_URL AS "url"
+        FROM REC_PLAYLIST_TRACK
+        WHERE PLAYLIST_ID = #{playlistId}
+        ORDER BY TRACK_ORDER
+    </select>
+
+</mapper>
