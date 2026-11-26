@@ -16,5 +16,5 @@ public class PlayListDTO {
     private String p_desc;
     private int m_type;
     private Date p_date;
-    private String u_id;
+    private int u_id;
 }
