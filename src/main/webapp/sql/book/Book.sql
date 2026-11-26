@@ -319,9 +319,9 @@ WHERE b_title = '날개'
 
 COMMIT;
 
-SELECT b_title, DBMS_LOB.GETLENGTH(b_content) AS content_length
-FROM book
-WHERE b_title = '날개' AND b_author = '이상';
+-- SELECT b_title, DBMS_LOB.GETLENGTH(b_content) AS content_length
+-- FROM book
+-- WHERE b_title = '날개' AND b_author = '이상';
 
 
 
@@ -542,11 +542,11 @@ WHERE b_title = '도시와 유령'
 COMMIT;
 
 
-SELECT b_title,
-       DBMS_LOB.GETLENGTH(b_content) AS content_length
-FROM book
-WHERE b_title = '도시와 유령'
-  AND b_author = '이효석';
+-- SELECT b_title,
+--        DBMS_LOB.GETLENGTH(b_content) AS content_length
+-- FROM book
+-- WHERE b_title = '도시와 유령'
+--   AND b_author = '이효석';
 
 
 
@@ -4241,3 +4241,8 @@ WHERE b_title = '지킬 박사와 하이드 씨'
   AND b_author = '로버트 루이스 스티븐슨';
 
 COMMIT;
+
+SELECT b_id, b_title
+FROM book
+WHERE b_title LIKE '%변신%';
+
