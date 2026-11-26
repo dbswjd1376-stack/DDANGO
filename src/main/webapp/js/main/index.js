@@ -14,16 +14,22 @@ function checkLogin() {
 }
 
 
-// 2. 메인페이지 전체 버튼 및 링크 클릭 검사
+// 2. 비로그인 사용자 기능 접근 제한
 document.addEventListener("click", function(event) {
 
     const target = event.target.closest("a, button, .playlist");
 
-    // 버튼이나 링크, 플레이리스트가 아니면 실행하지 않음
+    // 버튼이나 링크가 아니면 검사하지 않음
     if (target == null) return;
 
-    // 회원가입과 로그인 링크는 정상적으로 이용 가능
+    // 헤더의 회원가입 및 로그인 버튼 제외
     if (target.matches(".header-signup, a.login")) return;
+
+    // 로그인 및 회원가입 입력 폼 제외
+    if (target.closest(".signup-form")) return;
+
+    // 로그인 및 회원가입 하단 이동 링크 제외
+    if (target.closest(".signup-bottom")) return;
 
     // 비로그인 사용자 접근 제한
     if (!checkLogin()) {
