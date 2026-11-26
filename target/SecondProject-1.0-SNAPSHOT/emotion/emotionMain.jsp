@@ -97,7 +97,11 @@
         </select>
     </div>
 
-    <h2>추천곡</h2>
+    <h2>추천 플레이리스트</h2>
+    <p id="playlist-status" role="status"></p>
+    <ul id="music-playlists"></ul>
+
+    <h2>선택한 플리의 곡</h2>
     <p id="music-status" role="status"></p>
     <ul id="music-tracks"></ul>
 
@@ -105,8 +109,6 @@
     <p id="music-playlist-query"></p>
 
     <%--  track 목록  --%>
-<%--    <p id="playlist-status" role="status"></p>--%>
-<%--    <ul id="music-playlists"></ul>--%>
     <%--  나오는 영상 화면 크기 및 화면 숨기는 기능  --%>
     <iframe id="music-player" title="Youtube 음악 플레이어"
     width="480" height="270" allowfullscreen
