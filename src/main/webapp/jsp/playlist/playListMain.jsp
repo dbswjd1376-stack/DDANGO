@@ -9,7 +9,7 @@
             <h2>지금 올라온 딴거들.</h2>
             <p>다른 사람들의 취향이 담긴 플레이리스트를 구경해 보세요.</p>
         </div>
-        <button type="button" class="more" onclick="comingSoon()">플리 만들기 +</button>
+        <button type="button" class="more" onclick=location.href="/plAdd-c">플리 만들기 +</button>
     </div>
 
     <c:choose>
