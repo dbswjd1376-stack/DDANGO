@@ -51,5 +51,3 @@
 </c:choose>
 
 
-</body>
-</html>

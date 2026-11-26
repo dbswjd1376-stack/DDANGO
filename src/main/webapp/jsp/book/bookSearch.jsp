@@ -4,66 +4,31 @@
 <html>
 <head>
     <title>도서 검색</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/booksearch.css">
 </head>
-<style>
-    .mode-buttons {
-        display: flex;
-        gap: 10px;
-    }
-    .mode-btn {
-        flex: 1;
-        padding: 15px;
-        text-align: left;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 15px;
-        background: rgba(255,255,255,0.07);
-        color: white;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-    /* 선택되지 않은 버튼 */
-    .mode-btn:not(.active) {
-        opacity: 0.65;
-    }
-    /* 선택된 버튼 */
-    .mode-btn.active {
-        background: linear-gradient(
-                135deg,
-                rgba(255, 130, 190, 0.35),
-                rgba(170, 110, 255, 0.35)
-        );
-        border: 1.5px solid #f5c8ff;
-        box-shadow: 0 0 12px rgba(220, 130, 255, 0.25);
-        opacity: 1;
-        transform: translateY(-2px);
-    }
-    .mode-btn strong {
-        display: block;
-        margin-bottom: 8px;
-    }
-    .mode-btn small {
-        color: #d8cde0;
-    }
-</style>
-
-
-
 
 <body>
 <h1>BOOK PLAYLIST</h1>
 <p>책 한 권에서 시작되는 나만의 음악</p>
+<div class="journey">
+    <h2>YOUR BOOk JOURNEY</h2>
 
-<form id="searchForm" action="${pageContext.request.contextPath}/book-search" method="get">
-    <h3>도서 제목 </h3>
-    <input type="text" name="keyword"
+    <p id="journeyText">
+        책 선택 전  →  전체 플리
+    </p>
+</div>
+<form id="searchForm"
+      action="${pageContext.request.contextPath}/book-search"
+      method="get">
+
+    <h3>도서 제목</h3>
+    <input type="text" name="keyword" id="bookTitle"
            placeholder="도서 제목을 입력해주세요."
            required>
-<%--    입력 필수--%>
 
     <h3>도서 문구</h3>
     <textarea name="quote"
               placeholder="마음에 남은 문장을 입력해주세요."></textarea>
-<%--입력 선택--%>
 
     <hr>
 
@@ -88,45 +53,10 @@
     </div>
 
     <button type="submit">찾기</button>
-
 </form>
+
 <div id="searchResult"></div>
 
-<%--js--%>
-<script>
-    function selectMode(mode, button) {
-
-        // 선택한 추천 방식 저장
-        document.getElementById("mode").value = mode;
-        // 모든 버튼의 선택 효과 제거
-        const buttons = document.querySelectorAll(".mode-btn");
-        buttons.forEach(function(btn) {
-            btn.classList.remove("active");
-        });
-        // 선택한 버튼만 강조
-        button.classList.add("active");
-    }
-
-    // 검색 버튼 클릭 시 AJAX 실행
-    document.getElementById("searchForm").addEventListener("submit", function(event) {
-        // 기본 페이지 이동 막기
-        event.preventDefault();
-        const form = this;
-        const formData = new FormData(form);
-        const params = new URLSearchParams(formData);
-        fetch(form.action + "?" + params.toString())
-            .then(function(response) {
-                return response.text();
-            })
-            .then(function(result) {
-
-                // 검색 결과를 현재 페이지에 출력
-                document.getElementById("searchResult").innerHTML = result;
-            })
-            .catch(function(error) {
-                console.log("검색 오류 : ", error);
-            });
-    });
-</script>
+<script src="${pageContext.request.contextPath}/js/book/booksearch.js"></script>
 </body>
 </html>
