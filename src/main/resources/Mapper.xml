@@ -16,6 +16,21 @@
         select u_id, u_login_id, u_nickname, u_email, u_created_at from USERS where u_login_id = #{loginId} and u_password = #{password}
     </select>
 
+    <!-- 3. 닉네임 수정 -->
+    <update id="updateNickname">
+       update USERS set u_nickname = #{nickname} where u_id = #{u_id}
+    </update>
+
+    <!-- 4. 비밀번호 수정 -->
+    <update id="updatePassword">
+        update USERS set u_password = #{newPassword} where u_id = #{u_id} and u_password = #{currentPassword}
+    </update>
+
+    <!-- 5. 회원 탈퇴 -->
+    <delete id="deleteUser">
+        delete from USERS where u_id = #{u_id} and u_password = #{currentPassword}
+    </delete>
+
 
     <!-- 책 관련 -->
 
@@ -59,7 +74,6 @@
         WHERE b_id = #{bId}
         ORDER BY bc_number
     </select>
-
 
     <select id="debugChapterCount" parameterType="int" resultType="int">
         SELECT COUNT(*)

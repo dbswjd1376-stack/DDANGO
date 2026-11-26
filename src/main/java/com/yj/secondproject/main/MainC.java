@@ -17,9 +17,6 @@ public class MainC extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 플리 추가 페이지로 보내주기
 
-        request.setAttribute("content", "/jsp/playlist/playListAdd.jsp");
-        request.getRequestDispatcher("/jsp/main/index.jsp").forward(request, response);
     }
 }
