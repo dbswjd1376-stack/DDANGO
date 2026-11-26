@@ -34,13 +34,16 @@
 <header>
     <div class="header-inner">
 
-        <a href="${pageContext.request.contextPath}/jsp/main/index.jsp"
+
+        <a href="${pageContext.request.contextPath}/main"
            class="logo">
+
             DDANGO<span>딴거</span>
+
         </a>
 
         <nav>
-            <a href="${pageContext.request.contextPath}/jsp/main/index.jsp">
+            <a href="${pageContext.request.contextPath}/main">
                 DISCOVER
             </a>
 

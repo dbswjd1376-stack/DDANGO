@@ -16,5 +16,6 @@ public class BookDTO {
     private String b_quote;
     private String b_image;
     private String b_content;
+    private int hasChapter;
 
 }

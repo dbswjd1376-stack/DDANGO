@@ -1,56 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>로그인 | DDANGO</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
-
-</head>
-
-<body>
-
-<!-- 헤더 -->
-<header>
-  <div class="header-inner">
-
-    <a href="${pageContext.request.contextPath}/main" class="logo">
-      DDANGO<span>딴거</span>
-    </a>
-
-    <nav>
-      <a href="${pageContext.request.contextPath}/main">DISCOVER</a>
-
-      <a href="#" onclick="">
-        감정별 노래추천
-      </a>
-
-      <a href="#" onclick="">
-        도서로 노래추천
-      </a>
-    </nav>
-
-    <a href="${pageContext.request.contextPath}/signup" class="login">
-      회원가입 ↗
-    </a>
-
-  </div>
-</header>
-
-
 <!-- 로그인 영역 -->
-<main class="signup-main login-main">
+<div class="signup-main login-main">
 
   <section class="signup-box login-box">
 
@@ -79,7 +31,8 @@
 
 
     <!-- 로그인 입력 폼 -->
-    <form action="${pageContext.request.contextPath}/login" method="post" class="signup-form">
+    <form action="${pageContext.request.contextPath}/login"
+          method="post" class="signup-form">
 
       <!-- 아이디 -->
       <div class="signup-field">
@@ -122,19 +75,11 @@
     <!-- 회원가입 페이지 이동 -->
     <p class="signup-bottom">
       아직 계정이 없으신가요?
-      <a href="${pageContext.request.contextPath}/signup">회원가입</a>
+      <a href="${pageContext.request.contextPath}/signup">
+        회원가입
+      </a>
     </p>
 
   </section>
 
-</main>
-
-
-<!-- 푸터 -->
-<footer>
-  <strong>DDANGO 딴거.</strong>
-  <span>NOT THAT ONE. THIS ONE. © DDANGO</span>
-</footer>
-
-</body>
-</html>
+</div>
