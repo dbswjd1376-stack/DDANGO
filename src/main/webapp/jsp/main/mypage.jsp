@@ -2,87 +2,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%-- 비로그인 사용자 직접 접근 제한 --%>
-<c:if test="${empty sessionScope.loginUser}">
-    <c:redirect url="/signup"/>
-</c:if>
 
-<%-- JSP에 직접 접근한 경우 Controller로 이동 --%>
-<c:if test="${empty requestScope.mypageUser and empty requestScope.mypageError}">
-    <c:redirect url="/mypage"/>
-</c:if>
-
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>마이페이지 | DDANGO</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mypage.css">
-
-</head>
-
-<body>
-
-<header>
-    <div class="header-inner">
-
-
-        <a href="${pageContext.request.contextPath}/main"
-           class="logo">
-
-            DDANGO<span>딴거</span>
-
-        </a>
-
-        <nav>
-            <a href="${pageContext.request.contextPath}/main">
-                DISCOVER
-            </a>
-
-            <a href="${pageContext.request.contextPath}/emotion/emotionMain.jsp">
-                감정별 노래추천
-            </a>
-
-            <a href="#" onclick="">
-                도서로 노래추천
-            </a>
-        </nav>
-
-        <div class="header-auth">
-
-            <span class="header-nickname">
-                <c:out value="${sessionScope.loginUser.u_nickname}"/>님
-            </span>
-
-            <a href="${pageContext.request.contextPath}/mypage"
-               class="mypage-link">
-                마이페이지
-            </a>
-
-            <form action="${pageContext.request.contextPath}/logout"
-                  method="post" class="logout-form">
-
-                <button type="submit" class="logout">
-                    로그아웃 ↗
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-</header>
-
-
-<main class="mypage-main">
+<div class="mypage-main">
 
     <!-- 마이페이지 제목 -->
     <div class="mypage-title">
@@ -98,16 +19,31 @@
     </div>
 
 
-    <!-- 조회 실패 메시지 -->
-    <c:if test="${not empty mypageError}">
-        <p class="mypage-error">
-            <c:out value="${mypageError}"/>
+    <!-- 회원정보 수정 결과 메시지 -->
+    <c:if test="${not empty requestScope.mypageMessage}">
+
+        <p class="mypage-message ${mypageSuccess ? 'message-success' : 'message-error'}">
+
+            <c:out value="${requestScope.mypageMessage}"/>
+
         </p>
+
+    </c:if>
+
+
+    <!-- 회원정보 조회 실패 메시지 -->
+    <c:if test="${not empty requestScope.mypageError}">
+
+        <p class="mypage-error">
+            <c:out value="${requestScope.mypageError}"/>
+        </p>
+
     </c:if>
 
 
     <!-- 회원정보 조회 성공 -->
-    <c:if test="${not empty mypageUser}">
+    <c:if test="${not empty sessionScope.loginUser
+                  and not empty requestScope.mypageUser}">
 
         <section class="mypage-box">
 
@@ -116,71 +52,265 @@
             </span>
 
             <h2>
-                <c:out value="${mypageUser.u_nickname}"/>님 당장 노래를 들으셔야 해요
+                <c:out value="${mypageUser.u_nickname}"/>님, 반가워요!
             </h2>
+
 
             <!-- 회원정보 -->
             <div class="user-info">
 
                 <div class="info-row">
+
                     <span>회원번호</span>
+
                     <strong>${mypageUser.u_id}</strong>
+
                 </div>
 
+
                 <div class="info-row">
+
                     <span>아이디</span>
+
                     <strong>
                         <c:out value="${mypageUser.u_login_id}"/>
                     </strong>
+
                 </div>
 
+
                 <div class="info-row">
+
                     <span>닉네임</span>
+
                     <strong>
                         <c:out value="${mypageUser.u_nickname}"/>
                     </strong>
+
                 </div>
 
+
                 <div class="info-row">
+
                     <span>이메일</span>
+
                     <strong>
                         <c:out value="${mypageUser.u_email}"/>
                     </strong>
+
                 </div>
+
 
                 <div class="info-row">
+
                     <span>가입일</span>
+
                     <strong>
-                        <fmt:formatDate value="${mypageUser.u_created_at}"
-                                        pattern="yyyy.MM.dd"/>
+
+                        <fmt:formatDate
+                                value="${mypageUser.u_created_at}"
+                                pattern="yyyy.MM.dd"/>
+
                     </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- 회원정보 수정 버튼 -->
-            <div class="mypage-actions">
-
-                <button type="button" onclick="">
-                    닉네임 수정
-                </button>
-
-                <button type="button" onclick="">
-                    비밀번호 변경
-                </button>
-
-            </div>
+            <!-- 회원정보 관리 -->
+            <div class="account-settings">
 
 
-            <!-- 회원 탈퇴 -->
-            <div class="withdraw-area">
+                <!-- 1. 닉네임 수정 -->
+                <details class="account-detail">
 
-                <button type="button"
-                        class="withdraw-button"
-                        onclick="">
-                    회원 탈퇴
-                </button>
+                    <summary>닉네임 수정</summary>
+
+                    <form action="${pageContext.request.contextPath}/mypage"
+                          method="post"
+                          class="account-form">
+
+                        <input type="hidden"
+                               name="action"
+                               value="nickname">
+
+                        <input type="hidden"
+                               name="token"
+                               value="${sessionScope.mypageToken}">
+
+                        <div class="account-field">
+
+                            <label for="nickname">
+                                새로운 닉네임
+                            </label>
+
+                            <input type="text"
+                                   id="nickname"
+                                   name="nickname"
+                                   placeholder="새로운 닉네임을 입력하세요"
+                                   maxlength="50"
+                                   required>
+
+                        </div>
+
+                        <button type="submit"
+                                class="account-submit">
+
+                            수정 완료 ↗
+
+                        </button>
+
+                    </form>
+
+                </details>
+
+
+                <!-- 2. 비밀번호 변경 -->
+                <details class="account-detail">
+
+                    <summary>비밀번호 변경</summary>
+
+                    <form action="${pageContext.request.contextPath}/mypage"
+                          method="post"
+                          class="account-form">
+
+                        <input type="hidden"
+                               name="action"
+                               value="password">
+
+                        <input type="hidden"
+                               name="token"
+                               value="${sessionScope.mypageToken}">
+
+
+                        <div class="account-field">
+
+                            <label for="currentPassword">
+                                현재 비밀번호
+                            </label>
+
+                            <input type="password"
+                                   id="currentPassword"
+                                   name="currentPassword"
+                                   placeholder="현재 비밀번호"
+                                   autocomplete="current-password"
+                                   required>
+
+                        </div>
+
+
+                        <div class="account-field">
+
+                            <label for="newPassword">
+                                새 비밀번호
+                            </label>
+
+                            <input type="password"
+                                   id="newPassword"
+                                   name="newPassword"
+                                   placeholder="새 비밀번호 (8자 이상)"
+                                   minlength="8"
+                                   maxlength="255"
+                                   autocomplete="new-password"
+                                   required>
+
+                        </div>
+
+
+                        <div class="account-field">
+
+                            <label for="confirmPassword">
+                                새 비밀번호 확인
+                            </label>
+
+                            <input type="password"
+                                   id="confirmPassword"
+                                   name="confirmPassword"
+                                   placeholder="새 비밀번호를 다시 입력하세요"
+                                   autocomplete="new-password"
+                                   required>
+
+                        </div>
+
+
+                        <button type="submit"
+                                class="account-submit">
+
+                            변경 완료 ↗
+
+                        </button>
+
+                    </form>
+
+                </details>
+
+
+                <!-- 3. 회원 탈퇴 -->
+                <details class="account-detail withdraw-detail">
+
+                    <summary>회원 탈퇴</summary>
+
+                    <form action="${pageContext.request.contextPath}/mypage"
+                          method="post"
+                          class="account-form"
+                          onsubmit="return confirm('정말 탈퇴하시겠습니까?')">
+
+                        <input type="hidden"
+                               name="action"
+                               value="withdraw">
+
+                        <input type="hidden"
+                               name="token"
+                               value="${sessionScope.mypageToken}">
+
+
+                        <p class="withdraw-warning">
+
+                            회원 탈퇴 시 계정 정보가 삭제되며
+                            복구할 수 없습니다.
+
+                        </p>
+
+
+                        <div class="account-field">
+
+                            <label for="withdrawPassword">
+                                현재 비밀번호
+                            </label>
+
+                            <input type="password"
+                                   id="withdrawPassword"
+                                   name="currentPassword"
+                                   placeholder="현재 비밀번호를 입력하세요"
+                                   autocomplete="current-password"
+                                   required>
+
+                        </div>
+
+
+                        <label class="withdraw-agree">
+
+                            <input type="checkbox"
+                                   name="withdrawConfirm"
+                                   value="yes"
+                                   required>
+
+                            회원 탈퇴에 동의합니다.
+
+                        </label>
+
+
+                        <button type="submit"
+                                class="withdraw-submit">
+
+                            회원 탈퇴
+
+                        </button>
+
+                    </form>
+
+                </details>
 
             </div>
 
@@ -194,11 +324,12 @@
                 MY PLAYLIST
             </span>
 
-            <h2>내가 담은 아랑스러운 플리</h2>
+            <h2>내가 담은 취향들.</h2>
 
-            <p>내가 만든 플리다 보아라</p>
+            <p>나만의 플레이리스트를 만나보세요.</p>
 
-            <button type="button" onclick="">
+            <button type="button"
+                    onclick="location.href='/jsp/playlist/playListUser.jsp'">
                 내 플레이리스트 보기 ↗
             </button>
 
@@ -206,13 +337,4 @@
 
     </c:if>
 
-</main>
-
-
-<footer>
-    <strong>DDANGO 딴거.</strong>
-    <span>NOT THAT ONE. THIS ONE. © DDANGO</span>
-</footer>
-
-</body>
-</html>
+</div>

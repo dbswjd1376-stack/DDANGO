@@ -21,12 +21,87 @@ async function fetchMusic(path, params) {
 
     return data;
 }
+async function loadTracks(moodCode, genreCode) {
+    tracks.replaceChildren();
+    statusText.textContent = "Last.fm 추천곡을 불러오는 중…";
+
+    try {
+        // Java가 세부 감정 코드를 Last.fm 태그로 바꿔서 검색
+        // Servlet에 감정과 장르를 각각 요청
+// 예: mood=unrequited-love → sad, genre=jpop → j-pop
+        const [moodData, genreData] = await Promise.all([
+            fetchMusic("/recommend", { mood: moodCode }),
+            fetchMusic("/recommend", { genre: genreCode })
+        ]);
+
+        const moodSongs = moodData.tracks?.track ?? [];
+        const genreSongs = genreData.tracks?.track ?? [];
+
+// 장르 목록의 곡 주소를 모아 감정 목록에서도 같은 곡을 찾음
+        // 감정 인기곡 목록에 들어 있는 곡 주소를 모아
+        const moodTrackUrls = new Set(
+            moodSongs.map((song) => song.url).filter(Boolean)
+        );
+
+// 선택 장르 안에서 감정 목록에도 있는 곡을 먼저 보기
+        const matchedSongs = genreSongs.filter((song) => moodTrackUrls.has(song.url));
+        const otherGenreSongs = genreSongs.filter((song) => !moodTrackUrls.has(song.url));
+        const songs = [...matchedSongs, ...otherGenreSongs];
+        for (const [index, song] of songs.entries()) {
+            const item = document.createElement("li");
+            const card = document.createElement("button");
+            card.type = "button";
+
+            // 이미지가 있으면 large 크기를 우선 사용
+            const imageUrl = song.image?.find(
+                (image) => image.size === "large"
+            )?.["#text"];
+
+            if (imageUrl?.startsWith("https://")) {
+                const image = document.createElement("img");
+                image.src = imageUrl;
+                image.alt = "";
+                image.width = 96;
+                image.height = 96;
+                image.loading = "lazy";
+                card.appendChild(image);
+            }
+
+            const title = document.createElement("strong");
+            title.textContent = song.name;
+
+            const artist = document.createElement("span");
+            artist.textContent = song.artist.name;
+
+            // 카드를 누른 곡만 YouTube에서 검색
+            card.addEventListener("click", () => playFromTrack(songs, index));
+            card.append(title, " — ", artist);
+
+            item.appendChild(card);
+            tracks.appendChild(item);
+        }
+
+        statusText.textContent = songs.length
+            ? ""
+            : "이 감정과 장르의 인기곡 목록에 공통으로 들어 있는 곡이 없어요.";
+    } catch (error) {
+        statusText.textContent = "Last.fm 추천 실패 (" + error.message + ")";
+    }
+    if (!songs.length) {
+        statusText.textContent = "선택한 장르의 곡을 가져오지 못했어요.";
+    } else if (!matchedSongs.length) {
+        statusText.textContent =
+            "두 목록에 공통으로 들어 있는 곡이 없어 선택한 장르의 인기곡을 보여드려요.";
+    } else {
+        statusText.textContent = "감정에도 맞는 곡을 먼저 보여드려요.";
+    }
+}
 
 async function loadPlaylists(searchText) {
     playlists.replaceChildren();
     playlistStatus.textContent = "플레이리스트를 찾는 중…";
 
-    // 기존 Java Servlet에 조합한 검색어를 q로 보내요.
+    // 기존 Java Servlet에 조합한 검색어를 q로 보냄
     const data = await fetchMusic("/playlists", {
         q: searchText + " playlist"
     });
@@ -40,12 +115,13 @@ async function loadPlaylists(searchText) {
         button.type = "button";
         button.textContent = playlist.snippet.title;
 
-        // 플리 제목을 누르면 기존 YouTube 플레이어에서 열어요.
+        // 플리 제목을 누르면 기존 YouTube 플레이어에서 열기
         button.addEventListener("click", () => {
-            player.src = "https://www.youtube.com/embed/videoseries?list="
+            // 플리 전체를 열면 YouTube 플레이어가 다음 곡을 이어서 재생해요.
+            player.src = "https://www.youtube.com/embed?listType=playlist&list="
                 + encodeURIComponent(playlistId);
             player.hidden = false;
-            playlistStatus.textContent = "플레이어에서 ▶를 눌러 주세요.";
+            playlistStatus.textContent = "▶를 누르면 플리 순서대로 재생돼요.";
         });
 
         item.appendChild(button);
@@ -121,7 +197,8 @@ function updateRemaining() {
 
 function resetRecommendations() {
     // 후보가 달라지면 새 조합의 첫 번째부터 추천
-    nextPairIndex = 0;
+    tracks.replaceChildren();
+    statusText.textContent = "";
     recommendButton.textContent = "플리 추천받기";
     playlistQuery.textContent = "";
     playlists.replaceChildren();
@@ -162,45 +239,91 @@ resetButton.addEventListener("click", () => {
     updateRemaining();
 });
 
-recommendButton.addEventListener("click", async () => {
+recommendButton.addEventListener("click", () => {
+    // 목표 감정을 선택했다면 그 감정으로, 아니면 남은 감정으로 플리 만들기
     const moods = targetMood.value
         ? moodButtons.filter((button) => button.dataset.mood === targetMood.value)
         : moodButtons.filter((button) => !button.hidden);
     const genres = genreButtons.filter((button) => !button.hidden);
-    const pairCount = moods.length * genres.length;
 
-    if (pairCount === 0) return;
+    // 같은 장르만 먼저 나열되지 않도록 장르를 번갈아 배치
+    const pairs = moods.flatMap((mood, moodIndex) =>
+        genres.map((_, index) => ({
+            mood,
+            genre: genres[(moodIndex + index) % genres.length]
+        }))
+    ).slice(0, 10);
 
-    // 예: 장르가 2개면 각 감정마다 두 장르를 차례대로 검색
-    const index = nextPairIndex % pairCount;
-    const mood = moods[Math.floor(index / genres.length)];
-    const genre = genres[index % genres.length];
+    playlists.replaceChildren();
+    tracks.replaceChildren();
+    statusText.textContent = "";
+    playlistQuery.textContent = "";
 
-    const moodName = mood.textContent.trim();
-    const genreName = genre.textContent.trim();
-    const moodTag = mood.dataset.tag;
-    const genreTag = genre.dataset.genre;
+    for (const { mood, genre } of pairs) {
+        const title = mood.textContent.trim() + " + " + genre.textContent.trim();
+        const item = document.createElement("li");
+        const button = document.createElement("button");
 
-    playlistQuery.textContent =
-        moodName + " + " + genreName + " (" + (index + 1) + "/" + pairCount + ")";
+        button.type = "button";
+        button.textContent = title;
+        button.addEventListener("click", () => {
+            playlistQuery.textContent = title;
+            // 여기서 기존 Java /recommend를 통해 Last.fm 곡을 가져옴
+            loadTracks(mood.dataset.mood, genre.dataset.genre);
+        });
 
-    // 검색 중 후보가 바뀌어 이전 결과가 표시되는 일을 막음
-    const controls = [...moodButtons, ...genreButtons, recommendButton, resetButton, targetMoodButton, targetMood];
-    controls.forEach((button) => { button.disabled = true; });
-
-    try {
-        // 기존 loadPlaylists()가 뒤에 " playlist"를 자동으로 붙임
-        // 예: calm kpop playlist
-        await loadPlaylists(moodTag + " " + genreTag);
-
-        nextPairIndex++;
-        recommendButton.textContent =
-            pairCount > 1 ? "다음 조합 추천" : "다시 추천";
-    } catch (error) {
-        playlistStatus.textContent = error.message;
-    } finally {
-        controls.forEach((button) => { button.disabled = false; });
+        item.appendChild(button);
+        playlists.appendChild(item);
     }
+
+    playlistStatus.textContent = pairs.length
+        ? "플레이리스트를 선택하면 곡 목록이 열려요."
+        : "감정과 장르를 하나 이상 남겨 주세요.";
 });
 
 updateRemaining();
+let playbackRequest = 0;
+
+async function playFromTrack(songs, startIndex) {
+    // 다른 곡을 누르면 이전 검색 결과가 플레이어를 덮어쓰지 않게
+    const request = ++playbackRequest;
+    statusText.textContent = "재생할 영상들을 찾는 중…";
+
+    try {
+        const videoIds = [];
+
+        for (const song of songs.slice(startIndex)) {
+            if (request !== playbackRequest) return;
+
+            const query = song.artist.name + " " + song.name;
+            const data = await fetchMusic("/video", { q: query });
+            const videoId = data.items?.[0]?.id?.videoId;
+
+            if (videoId) videoIds.push(videoId);
+        }
+
+        if (request !== playbackRequest) return;
+
+        if (!videoIds.length) {
+            statusText.textContent = "재생 가능한 영상을 찾지 못했어요.";
+            return;
+        }
+
+        const [firstVideo, ...nextVideos] = videoIds;
+        const params = new URLSearchParams();
+
+        // 첫 곡은 URL에, 이후 곡은 playlist 파라미터에 순서대로
+        if (nextVideos.length) {
+            params.set("playlist", nextVideos.join(","));
+        }
+
+        player.src = "https://www.youtube.com/embed/"
+            + encodeURIComponent(firstVideo) + "?" + params.toString();
+        player.hidden = false;
+        statusText.textContent = "▶를 누르면 준비된 " + videoIds.length + "곡이 순서대로 재생돼요.";
+    } catch (error) {
+        if (request === playbackRequest) {
+            statusText.textContent = "재생 목록을 준비하지 못했어요. " + error.message;
+        }
+    }
+}

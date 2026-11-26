@@ -73,6 +73,7 @@ public class MusicApiServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String path = request.getPathInfo();
+        System.out.println(path);
         String keyName;
         String endpoint;
 //      tag 값 받아서 API KEY 값 받아 오기
@@ -105,7 +106,7 @@ public class MusicApiServlet extends HttpServlet {
                     + "&q=" + encode(query.trim()) + "&key=";
         } else if ("/playlists".equals(path)) {
             String query = request.getParameter("q");
-
+            System.out.println("pl 진입 ------------");
             if (query == null || query.trim().isEmpty() || query.length() > 100){
                 response.sendError(400, "Invalid search query");
                 return;
