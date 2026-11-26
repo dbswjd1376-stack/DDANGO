@@ -27,13 +27,7 @@
                                 <img class="cover-img" src="${p.p_img}" alt="${p.p_name}">
                             </c:if>
 
-                            <span class="tag">
-                                <c:choose>
-                                    <c:when test="${p.m_type == 1}">EDITOR'S PICK</c:when>
-                                    <c:when test="${p.m_type == 2}">USER MIX</c:when>
-                                    <c:otherwise>PLAYLIST</c:otherwise>
-                                </c:choose>
-                            </span>
+                            <span class="tag">PLAYLIST</span>
 
                             <span class="cover-bottom">NO. ${p.p_id}</span>
                             <button type="button" class="play-circle" aria-label="플리 보기">▶</button>
