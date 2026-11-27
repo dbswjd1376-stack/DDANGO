@@ -100,7 +100,7 @@ public class UserMypageC extends HttpServlet {
             } else if ("empty".equals(result)) {
                 message = "비밀번호를 모두 입력해 주세요.";
             } else if ("length".equals(result)) {
-                message = "새 비밀번호는 8~255자로 입력해 주세요.";
+                message = "새 비밀번호는 5자 이상 입력해 주세요.";
             } else if ("mismatch".equals(result)) {
                 message = "새 비밀번호가 일치하지 않습니다.";
             } else if ("same".equals(result)) {

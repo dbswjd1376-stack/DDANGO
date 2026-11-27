@@ -27,12 +27,12 @@ public class UserDAO {
             if (ss.insert("ddango.insertUser", user) == 1) {
                 System.out.println("회원가입 성공");
                 ss.commit();
-                request.setAttribute("signupResult", "로그인 성공!");
+                request.setAttribute("signupResult", "success");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            request.setAttribute("signupResult", "로그인 실패");
+            request.setAttribute("signupResult", "fail");
 
         } finally {
             if (ss != null) {
@@ -213,7 +213,7 @@ public class UserDAO {
                 return;
             }
 
-            if (newPassword.length() < 8 || newPassword.length() > 255) {
+            if (newPassword.length() < 5 || newPassword.length() > 255) {
                 request.setAttribute("passwordResult", "length");
                 return;
             }
