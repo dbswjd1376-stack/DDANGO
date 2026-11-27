@@ -26,6 +26,7 @@ public class OllamaClient {
 
         JsonObject options = new JsonObject();
         options.addProperty("temperature", 0.2);
+        options.addProperty("num_ctx", 8192); // 본문 한도 늘리기용
 
         JsonObject body = new JsonObject();
         body.addProperty("model", MODEL);
