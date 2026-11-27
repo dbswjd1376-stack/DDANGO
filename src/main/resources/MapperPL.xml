@@ -3,23 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ddango_pl">
-    <!-- 플리관련 -->
+    <!-- 플레이리스트 관련 SQL 매퍼 -->
 
-    <!-- 플리 전체 조회 -->
+    <!-- 전체 플레이리스트 조회 (최신순 정렬, DB의 p_description 컬럼을 DTO의 p_desc 필드에 매핑) -->
     <select id="selectAllPlayList" resultType="com.yj.secondproject.playlist.PlayListDTO">
         select p_id, p_img, p_name, p_description as p_desc, p_date, u_id
         from PlayList
         order by p_date desc
     </select>
 
-    <!-- 플리 등록 -->
+    <!-- 새 플레이리스트 등록 (p_id는 시퀀스로 자동 증가, 등록일은 sysdate) -->
     <insert id="insertPlayList" parameterType="com.yj.secondproject.playlist.PlayListDTO">
         insert into PLAYLIST (p_id, p_img, p_name, p_description, p_date, u_id)
         values (playlist_seq.nextval, #{p_img}, #{p_name}, #{p_desc}, sysdate, #{u_id})
     </insert>
 
-    <!-- 내 플리 조회 -->
+    <!-- 로그인한 유저(u_id)가 만든 플레이리스트만 조회 (최신순 정렬) -->
     <select id="myPlayList" resultType="com.yj.secondproject.playlist.PlayListDTO">
-        select * from PlayList where u_id = #{u_id} order by p_date desc
+        select p_id, p_img, p_name, p_description as p_desc, p_date, u_id
+        from PlayList
+        where u_id = #{u_id}
+        order by p_date desc
     </select>
 </mapper>
