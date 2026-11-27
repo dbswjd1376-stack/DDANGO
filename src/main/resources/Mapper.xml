@@ -82,4 +82,7 @@
         WHERE b_id = #{bId}
     </select>
 
+    <select id="getAllMoods" resultType="com.yj.secondproject.book.MoodDTO">
+        SELECT m_id, m_name_kor, m_name_eng FROM mood_test ORDER BY m_id
+    </select>
 </mapper>
