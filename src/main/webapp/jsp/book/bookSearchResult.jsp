@@ -18,7 +18,6 @@
             <p>장르 : ${book.b_genre}</p>
             <p>도서 설명 : ${book.b_description}</p>
             <p>입력한 문구 : ${quote}</p>
-            <p>${book.b_mood}</p>
 
 
             <%-- 챕터별 플리를 선택한 경우 --%>
