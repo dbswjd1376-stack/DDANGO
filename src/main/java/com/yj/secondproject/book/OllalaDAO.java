@@ -3,25 +3,24 @@ package com.yj.secondproject.book;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.yj.secondproject.DdangoDB;
+import org.apache.ibatis.session.SqlSession;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class OllalaDAO {
-    private final OllamaClient ollamaClient = new OllamaClient();
+    public final OllamaClient ollamaClient = new OllamaClient();
 
-    // 같은 패키지(클래스패스)에 있는 파일 읽기
+    // 클래스패스 루트(resources)에 있는 파일 읽기
     private String readResource(String fileName) throws Exception {
         try (InputStream in = OllalaDAO.class.getResourceAsStream("/" + fileName)) {
             if (in == null) {
-                throw new IllegalStateException(fileName + " 파일을 찾을 수 없어요. 같은 패키지 경로에 있는지 확인하세요.");
+                throw new IllegalStateException(fileName + " 파일을 찾을 수 없어요. resources 폴더에 있는지 확인하세요.");
             }
             try (BufferedReader br = new BufferedReader(
                     new InputStreamReader(in, StandardCharsets.UTF_8))) {
@@ -30,57 +29,66 @@ public class OllalaDAO {
         }
     }
 
-    // moods.md -> {한글: 영문}
-    private Map<String, String> loadMoods() throws Exception {
-        Map<String, String> moods = new LinkedHashMap<>();
-        for (String line : readResource("moods.md").split("\n")) {
-            line = line.trim();
-            if (line.startsWith("- ") && line.contains("|")) {
-                String[] parts = line.substring(2).split("\\|");
-                String eng = parts[0].trim();
-                String kor = parts[1].trim();
-                moods.put(kor, eng);
+    // mood_test -> {한글: MoodDTO}
+    private Map<String, MoodDTO> loadMoods() {
+        Map<String, MoodDTO> moods = new LinkedHashMap<>();
+        try (SqlSession ss = DdangoDB.connect()) {
+            List<MoodDTO> list = ss.selectList("ddango.getAllMoods");
+            for (MoodDTO m : list) {
+                moods.put(m.getM_name_kor(), m);
             }
         }
         return moods;
     }
 
-    public List<String> extract() throws Exception {
+    public String extract() throws Exception {
         String text = readResource("test.txt").trim();
-        Map<String, String> moods = loadMoods();
+        Map<String, MoodDTO> moods = loadMoods();
 
-        String moodList = moods.keySet().stream()
-                .map(k -> "- " + k)
+        // 영문 -> DTO (한글이 틀렸을 때 보조 검증용)
+        Map<String, MoodDTO> byEng = new HashMap<>();
+        for (MoodDTO m : moods.values()) {
+            byEng.put(m.getM_name_eng(), m);
+        }
+
+        // 프롬프트용 목록: "- 무서움 (fear)"
+        String moodList = moods.values().stream()
+                .map(m -> "- " + m.getM_name_kor() + " (" + m.getM_name_eng() + ")")
                 .collect(Collectors.joining("\n"));
 
         String prompt = "다음은 책 소개글입니다.\n\n" + text + "\n\n"
-                + "아래 감정 목록 중에서 이 책의 분위기와 감정에 가장 어울리는 단어를 3개 고르세요.\n"
-                + "반드시 목록에 있는 단어를 그대로 사용하고, 목록에 없는 단어는 절대 쓰지 마세요.\n\n"
+                + "아래 감정 목록 중에서 이 책의 분위기와 감정에 가장 어울리는 감정을 3개 고르세요.\n"
+                + "반드시 목록에 있는 감정만 사용하고, 한글과 영문을 목록에 적힌 그대로 함께 답하세요.\n\n"
                 + "[감정 목록]\n" + moodList + "\n\n"
-                + "JSON으로만 답하세요. 예: {\"moods\": [\"무서움\", \"비애\", \"절망\"]}";
+                + "JSON으로만 답하세요. 형식 예시:\n"
+                + "{\"moods\": [{\"kor\": \"편안해요\", \"eng\": \"relaxed\"}, "
+                + "{\"kor\": \"기분이 좋아요\", \"eng\": \"good-mood\"}]}";
 
         // 1) OllamaClient로 qwen 호출
         String content = ollamaClient.chat(prompt);
+        System.out.println(content);
 
-        // 2) JSON 파싱 + 목록 밖 단어/중복 제거
-        JsonArray picked = JsonParser.parseString(content)
-                .getAsJsonObject().getAsJsonArray("moods");
-
-        List<String> result = new ArrayList<>();
-        for (JsonElement e : picked) {
-            String kor = e.getAsString();
-            if (moods.containsKey(kor) && !result.contains(kor)) {
-                result.add(kor);
+        // 2) 파싱: 배열로 오든, {"moods": [...]}로 오든 둘 다 처리
+        JsonElement root = JsonParser.parseString(content);
+        JsonArray picked = new JsonArray();
+        if (root.isJsonArray()) {
+            picked = root.getAsJsonArray();
+        } else if (root.isJsonObject()) {
+            for (Map.Entry<String, JsonElement> en : root.getAsJsonObject().entrySet()) {
+                if (en.getValue().isJsonArray()) {
+                    picked = en.getValue().getAsJsonArray();
+                    break;
+                }
             }
         }
-        return result.size() > 3 ? result.subList(0, 3) : result;
-    }
 
-    // 테스트용
+        return content;
+    }
+        // 테스트용
     public static void main(String[] args) throws Exception {
-        List<String> result = new OllalaDAO().extract();
-        for (String kor : result) {
-            System.out.println(kor);
-        }
+//        List<MoodDTO> result = new OllalaDAO().extract();
+//        for (MoodDTO kor : result) {
+//            System.out.println(kor);
+//        }
     }
 }
