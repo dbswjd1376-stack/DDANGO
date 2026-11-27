@@ -36,6 +36,6 @@ public class PlayListUserC extends HttpServlet {
             return;
         }
 
-        response.sendRedirect(request.getContextPath() + "/pl-c");
+
     }
 }

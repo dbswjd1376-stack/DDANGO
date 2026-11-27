@@ -3,10 +3,7 @@ package com.yj.secondproject.emotion;
 
 import com.google.gson.Gson;
 import com.yj.secondproject.DdangoDB;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -123,9 +120,13 @@ public class MusicApiServlet extends HttpServlet {
         }
 
         if ("/db-playlist-tracks".equals(path)) {
-            long playlistId = 0;
-            try (SqlSession session = DdangoDB.connect()) {
-                writeJson(response, session.selectList("PlaylistMapper.findPlaylists", path));
+            long playlistId;
+            try {
+                playlistId = Long.parseLong(request.getParameter("playlistId"));
+
+                if (playlistId <= 0) {
+                    response.sendError(400, "Invalid playlistId");
+                }
             } catch (NumberFormatException e) {
                 response.sendError(400, "Invalid playlist ID");
                 return;
@@ -135,7 +136,7 @@ public class MusicApiServlet extends HttpServlet {
             params.put("playlistId", playlistId);
 
             try (SqlSession session = DdangoDB.connect()) {
-                writeJson(response, session.selectList("PlaylistMapper.findPlaylists", params));
+                writeJson(response, session.selectList("PlaylistMapper.findTracks", params));
             }
             return;
         }

@@ -38,6 +38,15 @@
                         <p class="playlist-meta">
                             @<c:out value="${p.u_id}" /> ·
                             <fmt:formatDate value="${p.p_date}" pattern="yyyy.MM.dd" />
+                            <div>
+                        <form action="">
+                            <button>수정하기</button>
+                        </form>
+                        <form action="plDel-c">
+                            <button>삭제하기</button>
+                        </form>
+
+                    </div>
                         </p>
                     </article>
                 </c:forEach>

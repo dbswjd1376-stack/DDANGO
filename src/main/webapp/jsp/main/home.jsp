@@ -27,7 +27,8 @@
             <div class="record">
                 <div class="record-center">딴거!</div>
             </div>
-            <span class="record-sticker">NEW<br>MOOD!</span>
+            <span class="record-sticker" id="ajax-test">NEW<br>MOOD!</span>
+            <script src="/js/test.js"></script>
         </div>
     </section>
 
