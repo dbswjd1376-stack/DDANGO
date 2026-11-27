@@ -2,6 +2,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+<script defer src="/js/playlist/playListUser.js"></script>
+
 <section class="music-section playlist-page">
     <div class="section-top">
         <div>
@@ -38,6 +40,14 @@
                         <p class="playlist-meta">
                             @<c:out value="${p.u_id}" /> ·
                             <fmt:formatDate value="${p.p_date}" pattern="yyyy.MM.dd" />
+                            <div>
+                        <form action="">
+                            <button>수정하기</button>
+                        </form>
+                        <button onclick="delPlayList('${p.p_id}')">삭제하기</button>
+
+
+                    </div>
                         </p>
                     </article>
                 </c:forEach>
