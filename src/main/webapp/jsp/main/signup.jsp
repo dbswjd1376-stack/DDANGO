@@ -25,29 +25,6 @@
 
 <body>
 
-<!-- 헤더 -->
-<header>
-  <div class="header-inner">
-
-    <a href="${pageContext.request.contextPath}/main" class="logo">
-      DDANGO<span>딴거</span>
-    </a>
-
-    <nav>
-      <a href="${pageContext.request.contextPath}/main">DISCOVER</a>
-      <a href="#" onclick="">
-        감정별 노래추천
-      </a>
-      <a href="#" onclick="">
-        도서로 노래추천
-      </a>
-    </nav>
-
-    <a href="${pageContext.request.contextPath}/login" class="login">로그인 ↗</a>
-
-  </div>
-</header>
-
 <!-- 회원가입 영역 -->
 <main class="signup-main">
 
@@ -116,11 +93,9 @@
         <label for="password">비밀번호</label>
 
         <input type="password"
-               id="password"
                name="u_password"
-               placeholder="8자 이상 입력하세요"
-               minlength="8"
-               maxlength="128"
+               minlength="5"
+               placeholder="비밀번호 5자 이상"
                required>
       </div>
 
@@ -131,7 +106,7 @@
                id="passwordCheck"
                name="password_check"
                placeholder="비밀번호를 다시 입력하세요"
-               minlength="8"
+               minlength="5"
                maxlength="128"
                required>
       </div>
@@ -172,14 +147,6 @@
   </section>
 
 </main>
-
-<!-- 푸터 -->
-<footer>
-  <strong>DDANGO 딴거.</strong>
-  <span>NOT THAT ONE. THIS ONE. © DDANGO</span>
-</footer>
-
-
 
 </body>
 </html>

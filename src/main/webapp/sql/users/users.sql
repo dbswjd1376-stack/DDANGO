@@ -14,8 +14,6 @@ CREATE TABLE USERS (
 CREATE SEQUENCE USERS_SEQ START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 
 
-
-
 INSERT INTO USERS (u_id, u_login_id, u_password, u_nickname, u_email) VALUES (USERS_SEQ.NEXTVAL, 'yj', 'yj1004', 'yj', 'yj@test.com');
 INSERT INTO USERS (u_id, u_login_id, u_password, u_nickname, u_email) VALUES (USERS_SEQ.NEXTVAL, 'sb', 'sb1004', 'sb', 'sb@test.com');
 INSERT INTO USERS (u_id, u_login_id, u_password, u_nickname, u_email) VALUES (USERS_SEQ.NEXTVAL, 'gy', 'gy1004', 'gy', 'gy@test.com');

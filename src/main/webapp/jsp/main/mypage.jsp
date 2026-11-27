@@ -209,10 +209,9 @@
                             <input type="password"
                                    id="newPassword"
                                    name="newPassword"
-                                   placeholder="새 비밀번호 (8자 이상)"
-                                   minlength="8"
+                                   placeholder="새 비밀번호 (5자 이상)"
+                                   minlength="5"
                                    maxlength="255"
-                                   autocomplete="new-password"
                                    required>
 
                         </div>
