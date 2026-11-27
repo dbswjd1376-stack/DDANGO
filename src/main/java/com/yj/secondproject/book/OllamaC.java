@@ -19,7 +19,9 @@ public class OllamaC extends HttpServlet {
             throws IOException, ServletException {
         OllalaDAO ollalaDAO = new OllalaDAO();
         String result = ollalaDAO.extract();
-        response.setContentType("text/html;charset=UTF-8");
+//        response.setContentType("text/html;charset=UTF-8");
+//        response.getWriter().println(result);
+        response.setContentType("application/json; charset=UTF-8");
         response.getWriter().println(result);
     }
 }
