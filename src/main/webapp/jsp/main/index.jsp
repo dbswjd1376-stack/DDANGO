@@ -13,7 +13,7 @@
 
     <!-- 공통 CSS -->
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/css/index.css">
+          href="/css/index.css">
 
     <!-- 로그인 페이지 CSS -->
     <c:if test="${content == '/jsp/main/login.jsp'}">
