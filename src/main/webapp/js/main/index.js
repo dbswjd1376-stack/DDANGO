@@ -42,17 +42,6 @@ document.addEventListener("click", function(event) {
 }, true);
 
 
-// 3. 아직 구현되지 않은 기능
-function comingSoon(event) {
-
-    if (event) event.preventDefault();
-
-    alert("이 기능은 추후 연결할 예정입니다.");
-
-    return false;
-}
-
-
 // 4. 플레이리스트 구경하기
 function scrollToPlaylists() {
 
@@ -61,20 +50,3 @@ function scrollToPlaylists() {
     });
 
 }
-
-
-// 5. 플레이리스트 상세보기
-document.querySelectorAll(".playlist").forEach(playlist => {
-
-    playlist.addEventListener("click", function(event) {
-
-        event.stopPropagation();
-
-        alert(
-            this.dataset.title +
-            "\n\n플레이리스트 상세페이지는 추후 연결할 예정입니다."
-        );
-
-    });
-
-});

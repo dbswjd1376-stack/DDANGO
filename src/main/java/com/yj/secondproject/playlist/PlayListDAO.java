@@ -97,4 +97,23 @@ public class PlayListDAO {
             if (sqlSession != null) sqlSession.close();
         }
     }
+
+    public static void delPlayList(HttpServletRequest request) {
+        // db세팅
+        String no = request.getParameter("no");
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = DdangoDB.connect();
+
+            if (sqlSession.delete("ddango_pl.delPlayList", no) == 1) {
+                System.out.println("del compleeeeeeeete");
+                sqlSession.commit();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally  {
+            if (sqlSession != null) sqlSession.close();
+        }
+    }
 }

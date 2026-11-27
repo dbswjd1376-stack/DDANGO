@@ -25,4 +25,8 @@
         where u_id = #{u_id}
         order by p_date desc
     </select>
+
+    <delete id="delPlayList" >
+        delete from PlayList where p_id =#{no}
+    </delete>
 </mapper>

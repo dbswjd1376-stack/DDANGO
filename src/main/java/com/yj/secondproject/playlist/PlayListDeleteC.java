@@ -11,11 +11,10 @@ import java.io.IOException;
 public class PlayListDeleteC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // 전체 플레이 리스트를 보여줘야함
-        PlayListDAO.selAllPlayList(request);
+        // 이제 플리 삭제할거임
+        PlayListDAO.delPlayList(request);
         // 어디로?
-        request.setAttribute("content", "/jsp/playlist/playListMain.jsp");
-        request.getRequestDispatcher("/jsp/main/index.jsp").forward(request, response);
+        response.sendRedirect("/plUser-c");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
