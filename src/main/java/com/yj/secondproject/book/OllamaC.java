@@ -21,6 +21,7 @@ public class OllamaC extends HttpServlet {
             throws IOException, ServletException {
 
 
+
         request.setCharacterEncoding("UTF-8");
         // 응답이 "JSON 형식의 UTF-8 글자"라고 브라우저에게 알려줌
         response.setContentType("application/json;charset=UTF-8");
@@ -60,5 +61,6 @@ public class OllamaC extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);   // 500
             response.getWriter().print("{\"error\":\"감정 분석에 실패했습니다.\"}");
         }
+
     }
 }
