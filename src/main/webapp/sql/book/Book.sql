@@ -14,7 +14,7 @@ alter table book add b_mood varchar2(50 char);
 
 drop table book;
 
-
+select  * from BOOK;
 create sequence book_seq;
 
 insert into book
